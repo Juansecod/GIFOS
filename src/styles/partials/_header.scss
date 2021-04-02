@@ -1,0 +1,84 @@
+/* Diseños del header para diseño desktop */
+
+header {
+    position: sticky;
+    top: 0px;
+    background-color: rgba($primary-color-dark, 50%);
+    box-shadow: 0 2px 4px 1px rgba(156, 175, 195, 0.55);
+}
+
+nav {
+    width: 100%;
+    padding: 18px 10.83% 12px 10.83%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: $font-family-montserrat;
+    font-weight: bold;
+    .logo {
+        width: 68px;
+        height: 60px;
+    }
+    ul {
+        width: 55%;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        div {
+            display: none;
+        }
+        li,
+        a {
+            cursor: pointer;
+            color: $primary-color;
+        }
+        #dark-mode:hover,
+        a:hover {
+            border-bottom: 2px solid $secundary-color;
+            border-radius: 10%;
+        }
+        .create {
+            display: inline-block;
+            border: 1px solid $primary-color;
+            color: $primary-color;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 30px;
+            line-height: 30px;
+            font-weight: 100;
+            text-align: center;
+            padding: 15% 0 25% 0;
+        }
+        .create:hover,
+        .create-active:hover {
+            border: 1px solid $primary-color;
+            color: $primary-color-dark;
+            background-color: $primary-color;
+            border-radius: 50%;
+        }
+        .create-active {
+            display: inline-block;
+            border: 1px solid $active-color;
+            background-color: $active-color;
+            color: $primary-color-dark;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 30px;
+            line-height: 30px;
+            font-weight: 100;
+            text-align: center;
+            padding: 15% 0 25% 0;
+        }
+        .active {
+            color: $active-color;
+        }
+    }
+}
+
+.menu {
+    display: none;
+}

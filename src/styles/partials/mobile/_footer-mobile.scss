@@ -1,0 +1,17 @@
+footer {
+    height: 196px;
+    flex-direction: column;
+    padding-bottom: 28px;
+}
+
+.left {
+    width: 100%;
+    margin-top: 47px;
+    flex-wrap: wrap;
+    p {
+        width: 100%;
+    }
+    a {
+        margin: 22px 0 47.8px 0;
+    }
+}

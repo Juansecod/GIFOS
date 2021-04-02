@@ -1,0 +1,89 @@
+<!---------------------------------------------------------------------------------------------
+    Desarrollado por: Juan Sebastian Rios Valencia
+    Usuario git: Juansecod
+    Linkedin: https://www.linkedin.com/in/juansecode/
+---------------------------------------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#572EE5">
+    <link rel="icon" type="image/svg+xml" href="./assets/img/Logo-modo-noc.svg" sizes="any">
+    <title>Gifos</title>
+    <link rel="stylesheet" href="../src/styles/style.css">
+
+</head>
+
+<body>
+    <!--Maquetado del header-->
+    <header>
+        <div class="line"></div>
+        <nav>
+            <a href="./index.html"><img src="./assets/img/logo-desktop.svg" alt="Logo" class="logo"></a>
+            <img src="./assets/img/burger.svg" alt="Menu" id="menu" class="menu">
+
+            <ul>
+                <li id="dark-mode">MODO NOCTURNO</li>
+                <div></div>
+                <li><a href="#favoritos">FAVORITOS</a></li>
+                <div></div>
+                <li><a href="#mis-gifos">MIS GIFOS</a></li>
+                <li><a href="#create" id="create" class="create">+</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Maquetado del cuerpo-->
+    <main>
+        <!-- SEARCH  -->
+        <div id="search" class="search">
+            <h2>Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h2>
+            <img src="./assets/img/ilustra_header.svg" alt="Personas">
+            <div class="container-input">
+                <input type="text" id="search" class="input-search" placeholder="Busca GIFOS y más">
+                <input type="image" alt='boton buscar' id="btn-search" src="./assets/img/icon-search.svg">
+
+            </div>
+            <h3>Trending:</h3>
+            <p>Reactions, Entertainment, Sports, Stickers, Artists</p>
+        </div>
+
+        <!-- TRENDING -->
+        <div id="trending" class="trending">
+            <h2>Trending GIFOS</h2>
+            <p>Mira los últimos GIFO de nuestra comunidad.</p>
+            <div class="container-carrusel">
+                <button class="btn-left">
+                    <img src="./assets/img/button-slider-left.svg" alt="Izquierda">
+                </button>
+                <div><img src="https://picsum.photos/357/275" alt="Logo"></div>
+                <div><img src="https://picsum.photos/357/275" alt="Logo"></div>
+                <div><img src="https://picsum.photos/357/275" alt="Logo"></div>
+                <button class="btn-right">
+                    <img src="./assets/img/Button-Slider-right.svg" alt="derecha">
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!--Maquetado del Footer-->
+    <footer>
+        <div class="left">
+            <p>Compartir en:</p>
+            <a href="http://www.facebook.com" target="_blank"><img src="./assets/img/icon_facebook.svg" alt="Icono facebook"></a>
+            <a href="http://www.twitter.com" target="_blank"><img src="./assets/img/icon-twitter.svg" alt="Icono twitter"></a>
+            <a href="http://www.instagram.com" target="_blank"><img src="./assets/img/icon_instagram.svg" alt="Icono instagram"></a>
+        </div>
+        <div class="right">
+            <p>© GIFOS 2020 All Rights Reserved.</p>
+        </div>
+
+    </footer>
+    <div class="line"></div>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+.search.dark {
+    background-color: $background-dark-mode;
+    h2,
+    h3,
+    p {
+        color: $primary-color-dark
+    }
+    .container-input {
+        border-color: $primary-color-dark;
+        .input-search {
+            background-color: $background-dark-mode;
+            color: $primary-color-dark;
+        }
+    }
+}

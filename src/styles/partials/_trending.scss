@@ -1,0 +1,38 @@
+.trending {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    background-color: $background-grey;
+    text-align: center;
+    h2 {
+        margin: 67px 0 12px 0;
+        font-size: 25px;
+        line-height: 30px;
+    }
+    p {
+        font-family: $font-family-roboto;
+        font-size: 18px;
+        margin-bottom: 53px;
+    }
+}
+
+.container-carrusel {
+    display: grid;
+    margin: 0 94px 0 94px;
+    grid-template-columns: 40px 1fr 1fr 1fr 40px;
+    gap: 25px;
+    height: auto;
+    padding: 0 0 12.64% 0;
+    button {
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        cursor: pointer;
+        align-self: center;
+    }
+    img {
+        display: inline-block;
+        width: max-content;
+        height: auto;
+    }
+}
