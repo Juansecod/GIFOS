@@ -38,14 +38,15 @@ h3 {
   background-color: #572EE5;
 }
 
-.line-dark {
+a {
+  text-decoration: none;
+}
+
+/* Linea en modo oscuro */
+.dark .line {
   width: 100%;
   height: 5px;
   background-color: #000000;
-}
-
-a {
-  text-decoration: none;
 }
 
 /* Diseños del header para diseño desktop */
@@ -156,36 +157,36 @@ nav ul .active {
 }
 
 /* Estilos modo oscuro en el header */
-header.dark {
+.dark header {
   background-color: #37383C;
 }
 
-nav.dark ul li,
-nav.dark ul a {
+.dark nav ul li,
+.dark nav ul a {
   color: #ffffff;
 }
 
-nav.dark ul #dark-mode:hover,
-nav.dark ul a:hover {
+.dark nav ul #dark-mode:hover,
+.dark nav ul a:hover {
   border-bottom: 2px solid #ffffff;
 }
 
-nav.dark ul .create {
+.dark nav ul .create {
   display: inline-block;
   border: 1px solid #ffffff;
   color: #000000;
   background-color: #ffffff;
 }
 
-nav.dark ul .create:hover,
-nav.dark ul .create-active:hover {
+.dark nav ul .create:hover,
+.dark nav ul .create-active:hover {
   border: 1px solid #9CAFC3;
   color: #ffffff;
   background-color: #37383C;
   border-radius: 50%;
 }
 
-nav.dark ul .active {
+.dark nav ul .active {
   color: #50E3C2;
 }
 
@@ -274,21 +275,21 @@ nav.dark ul .active {
 }
 
 /* Estilios modo oscuro seccion search */
-.search.dark {
+.dark .search {
   background-color: #37383C;
 }
 
-.search.dark h2,
-.search.dark h3,
-.search.dark p {
+.dark .search h2,
+.dark .search h3,
+.dark .search p {
   color: #ffffff;
 }
 
-.search.dark .container-input {
+.dark .search .container-input {
   border-color: #ffffff;
 }
 
-.search.dark .container-input .input-search {
+.dark .search .container-input .input-search {
   background-color: #37383C;
   color: #ffffff;
 }
@@ -343,12 +344,12 @@ nav.dark ul .active {
 }
 
 /* Estilos modo oscuro seccion trending */
-.trending.dark {
+.dark .trending {
   background-color: #222326;
 }
 
-.trending.dark h2,
-.trending.dark p {
+.dark .trending h2,
+.dark .trending p {
   color: #ffffff;
 }
 
@@ -384,7 +385,7 @@ footer p {
 }
 
 /* Estilos modo oscuro footer */
-footer.dark {
+.dark footer {
   background-color: #37383C;
   color: #ffffff;
 }
@@ -476,15 +477,15 @@ footer.dark {
     right: 10.83%;
   }
   /* Estilos modo oscuro footer mobile */
-  nav.dark ul {
+  .dark nav ul {
     background-color: black;
   }
-  nav.dark ul #dark-mode:hover,
-  nav.dark ul li:hover,
-  nav.dark ul a:hover {
+  .dark nav ul #dark-mode:hover,
+  .dark nav ul li:hover,
+  .dark nav ul a:hover {
     border-bottom: none;
   }
-  nav.dark ul .active {
+  .dark nav ul .active {
     background: -webkit-linear-gradient(rgba(156, 175, 195, 0.5), #ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

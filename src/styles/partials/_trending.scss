@@ -40,10 +40,12 @@
 
 /* Estilos modo oscuro seccion trending */
 
-.trending.dark {
-    background-color: $background-black;
-    h2,
-    p {
-        color: $primary-color-dark;
+.dark {
+    .trending {
+        background-color: $background-black;
+        h2,
+        p {
+            color: $primary-color-dark;
+        }
     }
 }

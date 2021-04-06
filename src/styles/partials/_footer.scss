@@ -22,7 +22,9 @@ footer {
 
 /* Estilos modo oscuro footer */
 
-footer.dark {
-    background-color: $background-dark-mode;
-    color: $primary-color-dark;
+.dark {
+    footer {
+        background-color: $background-dark-mode;
+        color: $primary-color-dark;
+    }
 }
