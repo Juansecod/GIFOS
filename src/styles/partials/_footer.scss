@@ -1,3 +1,5 @@
+/* Estilos del footer */
+
 footer {
     display: flex;
     height: 116px;
@@ -11,8 +13,16 @@ footer {
     }
 }
 
-.left {
+.footer-left {
     justify-content: space-evenly;
     width: 191px;
     display: flex;
+}
+
+
+/* Estilos modo oscuro footer */
+
+footer.dark {
+    background-color: $background-dark-mode;
+    color: $primary-color-dark;
 }

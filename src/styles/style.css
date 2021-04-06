@@ -13,9 +13,10 @@
           box-sizing: border-box;
 }
 
-/*Variables en donde se guarda todas la paleta de colores*/
+/*Variables en donde se guarda toda la paleta de colores*/
 /* Variables donde se guarda la familia de la fuente */
 /*Diseño Desktop*/
+/* Reglas Basicas para todos los componentes */
 body {
   max-width: 1440px;
 }
@@ -154,40 +155,41 @@ nav ul .active {
   display: none;
 }
 
+/* Estilos modo oscuro en el header */
 header.dark {
   background-color: #37383C;
 }
 
-nav.dark ul.dark li,
-nav.dark ul.dark a {
+nav.dark ul li,
+nav.dark ul a {
   color: #ffffff;
 }
 
-nav.dark ul.dark #dark-mode:hover,
-nav.dark ul.dark a:hover {
+nav.dark ul #dark-mode:hover,
+nav.dark ul a:hover {
   border-bottom: 2px solid #ffffff;
 }
 
-nav.dark ul.dark .create {
+nav.dark ul .create {
   display: inline-block;
   border: 1px solid #ffffff;
   color: #000000;
   background-color: #ffffff;
 }
 
-nav.dark ul.dark .create:hover,
-nav.dark ul.dark .create-active:hover {
+nav.dark ul .create:hover,
+nav.dark ul .create-active:hover {
   border: 1px solid #9CAFC3;
   color: #ffffff;
   background-color: #37383C;
   border-radius: 50%;
 }
 
-nav.dark ul.dark .active {
+nav.dark ul .active {
   color: #50E3C2;
 }
 
-/* Estilios main */
+/* Estilios seccion search */
 .search {
   text-align: center;
   display: -webkit-box;
@@ -271,6 +273,7 @@ nav.dark ul.dark .active {
   color: #9CAFC3;
 }
 
+/* Estilios modo oscuro seccion search */
 .search.dark {
   background-color: #37383C;
 }
@@ -339,6 +342,7 @@ nav.dark ul.dark .active {
   height: auto;
 }
 
+/* Estilos modo oscuro seccion trending */
 .trending.dark {
   background-color: #222326;
 }
@@ -348,6 +352,7 @@ nav.dark ul.dark .active {
   color: #ffffff;
 }
 
+/* Estilos del footer */
 footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -368,7 +373,7 @@ footer p {
   font-size: 14px;
 }
 
-.left {
+.footer-left {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -378,6 +383,7 @@ footer p {
   display: flex;
 }
 
+/* Estilos modo oscuro footer */
 footer.dark {
   background-color: #37383C;
   color: #ffffff;
@@ -469,20 +475,16 @@ footer.dark {
     position: absolute;
     right: 10.83%;
   }
-  nav.dark {
-    /* .logo {
-        content: url('');
-    } */
-  }
-  nav.dark ul.dark {
+  /* Estilos modo oscuro footer mobile */
+  nav.dark ul {
     background-color: black;
   }
-  nav.dark ul.dark #dark-mode:hover,
-  nav.dark ul.dark li:hover,
-  nav.dark ul.dark a:hover {
+  nav.dark ul #dark-mode:hover,
+  nav.dark ul li:hover,
+  nav.dark ul a:hover {
     border-bottom: none;
   }
-  nav.dark ul.dark .active {
+  nav.dark ul .active {
     background: -webkit-linear-gradient(rgba(156, 175, 195, 0.5), #ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -490,6 +492,7 @@ footer.dark {
 }
 
 @media screen and (max-width: 768px) and (max-width: 698px) {
+  /* Estilos seccion search mobile */
   .search {
     padding-bottom: 45px;
   }
@@ -508,6 +511,7 @@ footer.dark {
     height: 50px;
     font-size: 14px;
   }
+  /* Estilos del footer Mobile*/
   footer {
     height: 196px;
     -webkit-box-orient: vertical;
@@ -516,21 +520,22 @@ footer.dark {
             flex-direction: column;
     padding-bottom: 28px;
   }
-  .left {
+  .footer-left {
     width: 100%;
     margin-top: 47px;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-  .left p {
+  .footer-left p {
     width: 100%;
   }
-  .left a {
+  .footer-left a {
     margin: 22px 0 47.8px 0;
   }
 }
 
 @media screen and (max-width: 768px) and (max-width: 425px) {
+  /* Estilos seccion trending mobile */
   .trending h2 {
     margin: 46px 0 7px 0;
     font-size: 20px;
@@ -540,6 +545,7 @@ footer.dark {
     margin-right: 21px;
     font-size: 16px;
   }
+  /* Estilos carrusel de gifs */
   .container-carrusel {
     padding-bottom: 21.87%;
   }

@@ -1,4 +1,4 @@
-/* Estilios main */
+/* Estilios seccion search */
 
 .search {
     text-align: center;
@@ -57,5 +57,24 @@
     }
     .input-search:-ms-input-placeholder {
         color: $active-color;
+    }
+}
+
+
+/* Estilios modo oscuro seccion search */
+
+.search.dark {
+    background-color: $background-dark-mode;
+    h2,
+    h3,
+    p {
+        color: $primary-color-dark
+    }
+    .container-input {
+        border-color: $primary-color-dark;
+        .input-search {
+            background-color: $background-dark-mode;
+            color: $primary-color-dark;
+        }
     }
 }

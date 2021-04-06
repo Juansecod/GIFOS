@@ -68,3 +68,22 @@ nav {
     position: absolute;
     right: 10.83%;
 }
+
+
+/* Estilos modo oscuro footer mobile */
+
+nav.dark {
+    ul {
+        background-color: rgba($nav-mobile-dark, 1);
+        #dark-mode:hover,
+        li:hover,
+        a:hover {
+            border-bottom: none;
+        }
+        .active {
+            background: -webkit-linear-gradient(rgba($active-color, 0.5), $primary-color-dark);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+}

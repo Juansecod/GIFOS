@@ -11,13 +11,9 @@
 
 @import './partials/basic-rules';
 @import './partials/header';
-@import './partials/header-dark';
 @import './partials/search';
-@import './partials/search-dark';
 @import './partials/trending';
-@import './partials/trending-dark';
 @import './partials/footer';
-@import './partials/footer-dark';
 
 /* Limites para que la vista del usuario este centrada */
 
@@ -39,7 +35,6 @@
 
 @media screen and (max-width: 768px) {
     @import './partials/mobile/header-mobile';
-    @import './partials/mobile/header-mobile-dark';
     @media screen and (max-width: 698px) {
         @import './partials/mobile/search-mobile';
         @import './partials/mobile/footer-mobile';
