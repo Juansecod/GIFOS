@@ -23,7 +23,8 @@ nav {
         justify-content: start;
         top: 96px;
         left: 0px;
-        div {
+        animation: animation-nav 1.5s 1;
+        hr {
             display: inline-block;
             width: 20%;
             height: 5px;

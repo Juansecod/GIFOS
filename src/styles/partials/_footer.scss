@@ -11,6 +11,13 @@ footer {
         font-family: $font-family-roboto;
         font-size: 14px;
     }
+    .fab {
+        color: $icon-color;
+    }
+    .fab:hover {
+        transform: scale(2);
+        color: $primary-color;
+    }
 }
 
 .footer-left {
@@ -26,5 +33,8 @@ footer {
     footer {
         background-color: $background-dark-mode;
         color: $primary-color-dark;
+        .fab:hover {
+            color: $background-black;
+        }
     }
 }

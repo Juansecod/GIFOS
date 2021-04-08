@@ -5,6 +5,18 @@ body {
     max-width: 1440px;
 }
 
+
+/* Animaciones */
+
+@keyframes animation-nav {
+    0% {
+        top: -800px;
+    }
+    100% {
+        top: 95px;
+    }
+}
+
 main,
 footer {
     background-color: $primary-color-dark;
