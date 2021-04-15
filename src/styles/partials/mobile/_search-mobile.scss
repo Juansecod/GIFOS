@@ -16,5 +16,12 @@
         width: 60vw;
         height: 50px;
         font-size: 14px;
+        p {
+            display: inline;
+        }
     }
+}
+
+.container-input {
+    padding: 0 20px 0 55px;
 }

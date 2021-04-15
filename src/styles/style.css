@@ -39,6 +39,49 @@ body {
   }
 }
 
+/*Estilos del scrollbar*/
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+body::-webkit-scrollbar-thumb {
+  background: indigo;
+  background: -webkit-gradient(linear, left bottom, left top, from(indigo), to(#572EE5));
+  background: linear-gradient(0deg, indigo 0%, #572EE5 100%);
+  border-radius: 4px;
+}
+
+body.dark::-webkit-scrollbar-thumb {
+  background: #222326;
+  border-radius: 4px;
+}
+
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+body::-webkit-scrollbar-thumb:hover {
+  background: #50E3C2;
+  background: -webkit-gradient(linear, left bottom, left top, from(#50E3C2), to(#5072e3));
+  background: linear-gradient(0deg, #50E3C2 0%, #5072e3 100%);
+  -webkit-box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+body.dark::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del track */
+body::-webkit-scrollbar-track {
+  background: #9CAFC3;
+  border-radius: 4px;
+}
+
+/* Cambiamos el fondo cuando esté en active o hover */
+body::-webkit-scrollbar-track:hover,
+body::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}
+
 main,
 footer {
   background-color: #ffffff;
@@ -255,15 +298,22 @@ nav ul .active {
 }
 
 .search p {
-  font-family: "Montserrat", sans-serif;
+  display: inline;
   color: #572EE5;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
+}
+
+.search a {
+  display: inline;
+  color: #572EE5;
+  cursor: pointer;
 }
 
 .container-input {
   min-width: 300px;
   width: 38.26%;
-  height: 50px;
+  height: auto;
   border: 1px solid #572EE5;
   border-radius: 27px;
   padding-left: 55px;
@@ -274,22 +324,86 @@ nav ul .active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-bottom: 5.07%;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
 }
 
 .container-input .input-search {
-  width: auto;
+  width: calc(100% - 25px);
   height: 45px;
-  font-family: "Roboto", sans-serif;
+  margin: 0 5px 0 0;
   font-size: 16px;
   border: none;
 }
 
 .container-input .input-search:-ms-input-placeholder {
   color: #9CAFC3;
+}
+
+div.active {
+  padding-left: 21px;
+  padding-right: 21px;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+}
+
+div.active .input-search {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  width: calc(100% - 50px);
+  margin: 0 5px 0 5px;
+}
+
+div.active #btn-search {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+div.active #btn-close {
+  -ms-grid-column-align: right;
+      justify-self: right;
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  width: 20px;
+}
+
+div.active div {
+  width: 100%;
+  text-align: start;
+  margin-top: 10px;
+  -webkit-box-ordinal-group: 1001;
+      -ms-flex-order: 1000;
+          order: 1000;
+  color: #9CAFC3;
+}
+
+div.active div em {
+  margin-right: 5px;
+}
+
+div.active div:last-child {
+  margin-bottom: 18px;
+}
+
+div.active span {
+  border-radius: 10%;
+  opacity: 0.5;
+  -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 4;
+          order: 4;
+  width: 100%;
+  height: 1px;
+  background-color: #9CAFC3;
 }
 
 /* Estilios modo oscuro seccion search */
@@ -299,7 +413,8 @@ nav ul .active {
 
 .dark .search h2,
 .dark .search h3,
-.dark .search p {
+.dark .search p,
+.dark .search a {
   color: #ffffff;
 }
 
@@ -353,12 +468,48 @@ nav ul .active {
       align-self: center;
 }
 
-.container-carrusel img {
+.container-carrusel ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 15px;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-column: 2 / 5;
+  overflow: hidden;
+}
+
+.container-carrusel li {
+  width: 24.5vw;
+  min-width: 243px;
+  max-width: 357px;
+  height: calc(24.5vw - 100px);
+  min-height: 187px;
+  max-height: 275px;
+  min-width: auto;
+}
+
+.container-carrusel li img {
+  width: 24.5vw;
+  min-width: 243px;
+  max-width: 357px;
+  height: calc(24.5vw - 100px);
+  min-height: 187px;
+  max-height: 275px;
+}
+
+.container-carrusel li:hover div {
   display: inline-block;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  height: auto;
+  position: absolute;
+  width: 24.5vw;
+  min-width: 243px;
+  max-width: 357px;
+  height: calc(24.5vw - 100px);
+  min-height: 187px;
+  max-height: 275px;
+  opacity: 0.7;
+  background-color: #572EE5;
 }
 
 /* Estilos modo oscuro seccion trending */
@@ -524,9 +675,6 @@ footer .fab:hover {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-}
-
-@media screen and (max-width: 768px) and (max-width: 698px) {
   /* Estilos seccion search mobile */
   .search {
     padding-bottom: 45px;
@@ -546,6 +694,15 @@ footer .fab:hover {
     height: 50px;
     font-size: 14px;
   }
+  .search p p {
+    display: inline;
+  }
+  .container-input {
+    padding: 0 20px 0 55px;
+  }
+}
+
+@media screen and (max-width: 768px) and (max-width: 698px) {
   /* Estilos del footer Mobile*/
   footer {
     height: 196px;
@@ -582,10 +739,24 @@ footer .fab:hover {
   }
   /* Estilos carrusel de gifs */
   .container-carrusel {
-    padding-bottom: 21.87%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0;
+    padding: 0 22px 21.87% 22px;
   }
-  .container-carrusel img[alt="Logo"] {
+  .container-carrusel button {
     display: none;
+  }
+  .container-carrusel ul {
+    width: auto;
+    overflow-x: scroll;
+    gap: 0;
+  }
+  .container-carrusel li {
+    display: inline-block;
+    min-width: 243px;
+    margin-right: 15px;
   }
 }
 /*# sourceMappingURL=style.css.map */

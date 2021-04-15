@@ -30,33 +30,82 @@
         font-size: 18px;
     }
     p {
-        font-family: $font-family-montserrat;
+        display: inline;
         color: $primary-color;
+        font-family: $font-family-montserrat;
         font-size: 16px;
+    }
+    a {
+        display: inline;
+        color: $primary-color;
+        cursor: pointer;
     }
 }
 
 .container-input {
     min-width: 300px;
     width: 38.26%;
-    height: 50px;
+    height: auto;
     border: 1px solid $primary-color;
     border-radius: 27px;
     padding-left: 55px;
     padding-right: 55px;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 5.07%;
+    font-size: 16px;
+    font-family: $font-family-roboto;
     .input-search {
-        width: auto;
+        width: calc(100% - 25px);
         height: 45px;
-        font-family: $font-family-roboto;
+        margin: 0 5px 0 0;
         font-size: 16px;
         border: none;
     }
     .input-search:-ms-input-placeholder {
         color: $active-color;
+    }
+}
+
+div.active {
+    padding-left: 21px;
+    padding-right: 21px;
+    justify-content: stretch;
+    .input-search {
+        order: 2;
+        width: calc(100% - 50px);
+        margin: 0 5px 0 5px;
+    }
+    #btn-search {
+        order: 1;
+    }
+    #btn-close {
+        justify-self: right;
+        order: 3;
+        width: 20px;
+    }
+    div {
+        width: 100%;
+        text-align: start;
+        margin-top: 10px;
+        order: 1000;
+        color: $active-color;
+        em {
+            margin-right: 5px;
+        }
+    }
+    div:last-child {
+        margin-bottom: 18px;
+    }
+    span {
+        border-radius: 10%;
+        opacity: 0.5;
+        order: 4;
+        width: 100%;
+        height: 1px;
+        background-color: $active-color;
     }
 }
 
@@ -68,7 +117,8 @@
         background-color: $background-dark-mode;
         h2,
         h3,
-        p {
+        p,
+        a {
             color: $primary-color-dark
         }
         .container-input {

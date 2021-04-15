@@ -1,3 +1,12 @@
+@mixin tamañosGifTrending {
+    width: 24.5vw;
+    min-width: 243px;
+    max-width: 357px;
+    height: calc(24.5vw - 100px);
+    min-height: 187px;
+    max-height: 275px;
+}
+
 .trending {
     display: inline-block;
     width: 100%;
@@ -30,10 +39,28 @@
         cursor: pointer;
         align-self: center;
     }
-    img {
-        display: inline-block;
-        width: max-content;
-        height: auto;
+    ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        grid-column: 2 / 5;
+        overflow: hidden;
+    }
+    li {
+        @include tamañosGifTrending;
+        min-width: auto;
+        img {
+            @include tamañosGifTrending;
+        }
+    }
+    li:hover {
+        div {
+            display: inline-block;
+            position: absolute;
+            @include tamañosGifTrending;
+            opacity: 0.7;
+            background-color: $primary-color;
+        }
     }
 }
 

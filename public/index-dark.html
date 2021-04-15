@@ -10,9 +10,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#37383C">
+    <meta name="theme-color" content="#37383C" id="theme-color">
     <link rel="icon" type="image/svg+xml" href="./assets/img/Logo-modo-noc.svg" sizes="any">
     <title>Gifos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="../src/styles/style.css">
 
 </head>
@@ -22,13 +23,13 @@
     <header>
         <div class="line"></div>
         <nav class="">
-            <a href="./index.html"><img src="./assets/img/logo-mobile-modo-noct.svg" alt="Logo" class="logo" id='logo'></a>
+            <a href="./index.html"><img src="./assets/img/Logo-modo-noc.svg" alt="Logo" class="logo" id='logo'></a>
             <img src="./assets/img/burger-modo-noct.svg" alt="Menu" id="menu" class="menu">
-            <ul class="ul-active">
+            <ul>
                 <li id="dark-mode">MODO DIURNO</li>
-                <div></div>
+                <hr>
                 <li><a href="#favoritos">FAVORITOS</a></li>
-                <div></div>
+                <hr>
                 <li><a href="#mis-gifos" class="active">MIS GIFOS</a></li>
                 <li><a href="#create" id="create" class="create">+</a></li>
             </ul>
@@ -40,9 +41,13 @@
         <div class="search">
             <h2>Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h2>
             <img src="./assets/img/ilustra_header.svg" alt="Personas">
-            <div class="container-input">
+            <div class="container-input active">
                 <input type="text" id="search" class="input-search" placeholder="Busca GIFOS y más">
                 <input type="image" alt='boton buscar' id="btn-search" src="./assets/img/icon-search-modo-noct.svg">
+                <input type="image" src="./assets/img/close-modo-noct.svg" alt="cerrar" id="btn-close">
+                <span></span>
+                <div><em class="fas fa-search"></em>Hola mundo</div>
+                <div><em class="fas fa-search"></em>Hola mundo</div>
             </div>
             <h3>Trending:</h3>
             <p>Reactions, Entertainment, Sports, Stickers, Artists</p>
@@ -56,9 +61,32 @@
                 <button class="btn-left">
                     <img src="./assets/img/button-slider-left-md-noct.svg" alt="Izquierda">
                 </button>
-                <div><img src="https://picsum.photos/357/275" alt="Logo"></div>
-                <div><img src="https://picsum.photos/357/275" alt="Logo"></div>
-                <div><img src="https://picsum.photos/357/275" alt="Logo"></div>
+                <ul>
+                    <li>
+                        <div></div>
+                        <img src="https://picsum.photos/357/275" alt="Logo">
+
+                    </li>
+                    <li>
+                        <div></div><img src="https://picsum.photos/357/275" alt="Logo">
+
+                    </li>
+                    <li>
+                        <div></div><img src="https://picsum.photos/357/275" alt="Logo">
+
+                    </li>
+                    <li>
+                        <div></div><img src="https://picsum.photos/357/275" alt="Logo">
+
+                    </li>
+                    <li>
+                        <div></div><img src="https://picsum.photos/357/275" alt="Logo">
+
+                    </li>
+
+
+                </ul>
+
                 <button class="btn-right">
                     <img src="./assets/img/button-slider-right-md-noct.svg" alt="derecha">
                 </button>
@@ -80,7 +108,9 @@
 
     </footer>
     <div class="line "></div>
-    <script src="../src/scripts/index.js"></script>
+    <script src="../src/scripts/elementosDOM.js"></script>
+    <script src="../src/scripts/eventosHeader.js"></script>
+    <script src="../src/scripts/terminosTendencia.js"></script>
 </body>
 
 </html>

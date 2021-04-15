@@ -16,8 +16,20 @@
 /* Estilos carrusel de gifs */
 
 .container-carrusel {
-    padding-bottom: 21.87%;
-    img[alt="Logo"] {
+    display: flex;
+    margin: 0;
+    padding: 0 22px 21.87% 22px;
+    button {
         display: none;
+    }
+    ul {
+        width: auto;
+        overflow-x: scroll;
+        gap: 0;
+    }
+    li {
+        display: inline-block;
+        min-width: 243px;
+        margin-right: 15px;
     }
 }

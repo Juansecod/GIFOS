@@ -17,6 +17,56 @@ body {
     }
 }
 
+
+/*Estilos del scrollbar*/
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+
+body::-webkit-scrollbar-thumb {
+    background: rgb(75, 0, 130);
+    background: linear-gradient(0deg, rgba(75, 0, 130, 1) 0%, $primary-color 100%);
+    border-radius: 4px;
+}
+
+body.dark::-webkit-scrollbar-thumb {
+    background: $background-black;
+    border-radius: 4px;
+}
+
+
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+
+body::-webkit-scrollbar-thumb:hover {
+    background: $secundary-color;
+    background: linear-gradient(0deg, $secundary-color 0%, rgb(80, 114, 227) 100%);
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+body.dark::-webkit-scrollbar-thumb:hover {
+    background: $nav-mobile-dark;
+}
+
+
+/* Ponemos un color de fondo y redondeamos las esquinas del track */
+
+body::-webkit-scrollbar-track {
+    background: $active-color;
+    border-radius: 4px;
+}
+
+
+/* Cambiamos el fondo cuando esté en active o hover */
+
+body::-webkit-scrollbar-track:hover,
+body::-webkit-scrollbar-track:active {
+    background: #d4d4d4;
+}
+
 main,
 footer {
     background-color: $primary-color-dark;
