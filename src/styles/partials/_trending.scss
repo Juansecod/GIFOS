@@ -39,7 +39,7 @@
         cursor: pointer;
         align-self: center;
     }
-    ul {
+    .gifs {
         list-style: none;
         display: flex;
         gap: 15px;
@@ -49,18 +49,66 @@
     li {
         @include tamañosGifTrending;
         min-width: auto;
-        img {
+        div {
             @include tamañosGifTrending;
+            background-image: url("https://picsum.photos/357/275");
+            padding-top: 3%;
+            background-size: cover;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-between;
+            justify-content: flex-end;
         }
     }
     li:hover {
         div {
-            display: inline-block;
-            position: absolute;
-            @include tamañosGifTrending;
-            opacity: 0.7;
-            background-color: $primary-color;
+            background-image: linear-gradient( rgba($primary-color, 0.7), rgba($primary-color, 0.7)), url(https://picsum.photos/357/275);
         }
+        em {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            color: rgba($primary-color, 0.7);
+            background-color: rgba($primary-color-dark, 0.7);
+            border-radius: 6px;
+        }
+        em:hover {
+            color: rgba($primary-color, 1);
+            background-color: rgba($primary-color-dark, 1);
+            transform: scale(1.2);
+        }
+    }
+    .text {
+        display: inline-block;
+        width: 100%;
+        height: 70px;
+        max-height: 70px;
+        padding-left: 5%;
+        p,
+        h2 {
+            text-align: left;
+            max-height: 100px;
+            margin: 0;
+            color: white;
+        }
+    }
+}
+
+.icons {
+    float: right;
+    list-style: none;
+    display: flex;
+    width: 40%;
+    height: auto;
+    max-height: 40px;
+    max-width: 142.797px;
+    li {
+        margin: 0;
+        padding: 0;
     }
 }
 
@@ -73,6 +121,13 @@
         h2,
         p {
             color: $primary-color-dark;
+        }
+    }
+    .container-carrusel {
+        li:hover {
+            div {
+                background-image: linear-gradient( rgba($background-dark-mode, 0.7), rgba($background-dark-mode, 0.7)), url(https://picsum.photos/357/275);
+            }
         }
     }
 }

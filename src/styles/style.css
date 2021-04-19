@@ -251,6 +251,130 @@ nav ul .active {
   color: #50E3C2;
 }
 
+.dark .container-input-header {
+  border-color: #ffffff;
+}
+
+.dark .container-input-header .input-search {
+  background-color: #37383C;
+  color: #ffffff;
+}
+
+.container-input-header {
+  width: calc(40% - 68px);
+  height: auto;
+  border: 1px solid #572EE5;
+  border-radius: 27px;
+  padding-left: 55px;
+  padding-right: 55px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+}
+
+.container-input-header .input-search {
+  width: calc(100% - 25px);
+  height: 45px;
+  margin: 0 5px 0 0;
+  font-size: 16px;
+  border: none;
+}
+
+.container-input-header .input-search:-ms-input-placeholder {
+  color: #9CAFC3;
+}
+
+div.active {
+  padding-left: 21px;
+  padding-right: 21px;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+}
+
+div.active .input-search {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  width: calc(100% - 50px);
+  margin: 0 5px 0 5px;
+}
+
+div.active #btn-search-header {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+div.active #btn-close-header {
+  -ms-grid-column-align: right;
+      justify-self: right;
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  width: 20px;
+}
+
+div.active div {
+  width: 100%;
+  text-align: start;
+  margin-top: 10px;
+  -webkit-box-ordinal-group: 1001;
+      -ms-flex-order: 1000;
+          order: 1000;
+  color: #9CAFC3;
+}
+
+div.active div em {
+  margin-right: 5px;
+}
+
+div.active div:last-child {
+  margin-bottom: 18px;
+}
+
+div.active span {
+  border-radius: 10%;
+  opacity: 0.5;
+  -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 4;
+          order: 4;
+  width: 100%;
+  height: 1px;
+  background-color: #9CAFC3;
+}
+
+/* Estilios modo oscuro seccion search */
+.dark .search {
+  background-color: #37383C;
+}
+
+.dark .search h2,
+.dark .search h3,
+.dark .search p,
+.dark .search a {
+  color: #ffffff;
+}
+
+.dark .search .container-input {
+  border-color: #ffffff;
+}
+
+.dark .search .container-input .input-search {
+  background-color: #37383C;
+  color: #ffffff;
+}
+
 /* Estilios seccion search */
 .search {
   text-align: center;
@@ -308,6 +432,10 @@ nav ul .active {
   display: inline;
   color: #572EE5;
   cursor: pointer;
+}
+
+.search a:hover {
+  text-decoration: underline;
 }
 
 .container-input {
@@ -468,7 +596,7 @@ div.active span {
       align-self: center;
 }
 
-.container-carrusel ul {
+.container-carrusel .gifs {
   list-style: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -490,26 +618,90 @@ div.active span {
   min-width: auto;
 }
 
-.container-carrusel li img {
+.container-carrusel li div {
   width: 24.5vw;
   min-width: 243px;
   max-width: 357px;
   height: calc(24.5vw - 100px);
   min-height: 187px;
   max-height: 275px;
+  background-image: url("https://picsum.photos/357/275");
+  padding-top: 3%;
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .container-carrusel li:hover div {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(87, 46, 229, 0.7)), to(rgba(87, 46, 229, 0.7))), url(https://picsum.photos/357/275);
+  background-image: linear-gradient(rgba(87, 46, 229, 0.7), rgba(87, 46, 229, 0.7)), url(https://picsum.photos/357/275);
+}
+
+.container-carrusel li:hover em {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  color: rgba(87, 46, 229, 0.7);
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 6px;
+}
+
+.container-carrusel li:hover em:hover {
+  color: #572ee5;
+  background-color: white;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.container-carrusel .text {
   display: inline-block;
-  position: absolute;
-  width: 24.5vw;
-  min-width: 243px;
-  max-width: 357px;
-  height: calc(24.5vw - 100px);
-  min-height: 187px;
-  max-height: 275px;
-  opacity: 0.7;
-  background-color: #572EE5;
+  width: 100%;
+  height: 70px;
+  max-height: 70px;
+  padding-left: 5%;
+}
+
+.container-carrusel .text p,
+.container-carrusel .text h2 {
+  text-align: left;
+  max-height: 100px;
+  margin: 0;
+  color: white;
+}
+
+.icons {
+  float: right;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 40%;
+  height: auto;
+  max-height: 40px;
+  max-width: 142.797px;
+}
+
+.icons li {
+  margin: 0;
+  padding: 0;
 }
 
 /* Estilos modo oscuro seccion trending */
@@ -520,6 +712,11 @@ div.active span {
 .dark .trending h2,
 .dark .trending p {
   color: #ffffff;
+}
+
+.dark .container-carrusel li:hover div {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(55, 56, 60, 0.7)), to(rgba(55, 56, 60, 0.7))), url(https://picsum.photos/357/275);
+  background-image: linear-gradient(rgba(55, 56, 60, 0.7), rgba(55, 56, 60, 0.7)), url(https://picsum.photos/357/275);
 }
 
 /* Estilos del footer */
@@ -654,6 +851,9 @@ footer .fab:hover {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+  nav .container-input-header {
+    display: none;
+  }
   .menu {
     display: inline-block;
     width: 15px;
@@ -700,6 +900,52 @@ footer .fab:hover {
   .container-input {
     padding: 0 20px 0 55px;
   }
+  /* Estilos seccion trending mobile */
+  .trending h2 {
+    margin: 46px 0 7px 0;
+    font-size: 20px;
+  }
+  .trending p {
+    margin-left: 21px;
+    margin-right: 21px;
+    font-size: 16px;
+  }
+  /* Estilos carrusel de gifs */
+  .container-carrusel {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0;
+    padding: 0 22px 21.87% 22px;
+  }
+  .container-carrusel button {
+    display: none;
+  }
+  .container-carrusel .gifs {
+    width: auto;
+    overflow-x: scroll;
+    gap: 0;
+  }
+  .container-carrusel li {
+    display: inline-block;
+    min-width: 243px;
+    margin-right: 15px;
+  }
+  .container-carrusel div {
+    padding-right: 10px;
+  }
+  .icons {
+    min-width: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 40%;
+    gap: 10px;
+    min-width: auto;
+  }
+  .icons li {
+    min-width: 0px;
+  }
 }
 
 @media screen and (max-width: 768px) and (max-width: 698px) {
@@ -723,40 +969,6 @@ footer .fab:hover {
   }
   .footer-left a {
     margin: 22px 0 47.8px 0;
-  }
-}
-
-@media screen and (max-width: 768px) and (max-width: 425px) {
-  /* Estilos seccion trending mobile */
-  .trending h2 {
-    margin: 46px 0 7px 0;
-    font-size: 20px;
-  }
-  .trending p {
-    margin-left: 21px;
-    margin-right: 21px;
-    font-size: 16px;
-  }
-  /* Estilos carrusel de gifs */
-  .container-carrusel {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin: 0;
-    padding: 0 22px 21.87% 22px;
-  }
-  .container-carrusel button {
-    display: none;
-  }
-  .container-carrusel ul {
-    width: auto;
-    overflow-x: scroll;
-    gap: 0;
-  }
-  .container-carrusel li {
-    display: inline-block;
-    min-width: 243px;
-    margin-right: 15px;
   }
 }
 /*# sourceMappingURL=style.css.map */

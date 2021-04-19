@@ -36,10 +36,9 @@
 @media screen and (max-width: 768px) {
     @import './partials/mobile/header-mobile';
     @import './partials/mobile/search-mobile';
+    @import './partials/mobile/trending-mobile';
     @media screen and (max-width: 698px) {
         @import './partials/mobile/footer-mobile';
     }
-    @media screen and (max-width: 425px) {
-        @import './partials/mobile/trending-mobile';
-    }
+    @media screen and (max-width: 425px) {}
 }

@@ -24,7 +24,11 @@
         <nav>
             <a href="./index.html"><img src="./assets/img/logo-desktop.svg" alt="Logo" class="logo" id="logo"></a>
             <img src="./assets/img/burger.svg" alt="Menu" id="menu" class="menu">
+            <div class="container-input-header">
+                <input type="text" id="search-input-header" class="input-search" placeholder="Busca GIFOS y más">
+                <input type="image" alt='boton buscar' id="btn-search-header" src="./assets/img/icon-search.svg" class="btn-search">
 
+            </div>
             <ul id='list'>
                 <li id="dark-mode">MODO NOCTURNO</li>
                 <hr>
@@ -44,7 +48,7 @@
             <img src="./assets/img/ilustra_header.svg" alt="Personas">
             <div class="container-input ">
                 <input type="text" id="search-input" class="input-search" placeholder="Busca GIFOS y más">
-                <input type="image" alt='boton buscar' id="btn-search" src="./assets/img/icon-search.svg">
+                <input type="image" alt='boton buscar' id="btn-search" class="btn-search" src="./assets/img/icon-search.svg">
 
             </div>
             <h3>Trending:</h3>
@@ -56,13 +60,51 @@
             <p>Mira los últimos GIFO de nuestra comunidad.</p>
             <div class="container-carrusel">
                 <button class="btn-left">
-                    <img src="./assets/img/button-slider-left.svg" alt="Izquierda">
+                    <img src="./assets/img/button-slider-left.svg" alt="Izquierda" id='slider-left'>
                 </button>
-                <div></div>
-                <div></div>
-                <div></div>
+                <ul class="gifs" id='gifsTrending'>
+                    <li class="card-trending">
+                        <div>
+                            <ul class="icons" id='icons0'>
+                                <li><em class="far fa-heart"></em></li>
+                                <li><em class="fas fa-download"></em></li>
+                                <li><em class="fas fa-expand-alt"></em></li>
+                            </ul>
+                            <span class="text" id='text0'> 
+                                <p>user</p>
+                                <h2>TITULO</h2>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="card-trending">
+                        <div>
+                            <ul class="icons" id='icons1'>
+                                <li><em class="far fa-heart" id='favorite'></em></li>
+                                <li><em class="fas fa-download" id='download'></em></li>
+                                <li><em class="fas fa-expand-alt" id='full-screen'></em></li>
+                            </ul>
+                            <span class="text" id='text1'>
+                                <p>user</p>
+                                <h2>TITULO</h2>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="card-trending">
+                        <div>
+                            <ul class="icons" id='icons2'>
+                                <li><em class="far fa-heart"></em></li>
+                                <li><em class="fas fa-download"></em></li>
+                                <li><em class="fas fa-expand-alt"></em></li>
+                            </ul>
+                            <span class="text" id='text2'>
+                                <p>user</p>
+                                <h2>TITULO</h2>
+                            </span>
+                        </div>
+                    </li>
+                </ul>
                 <button class="btn-right">
-                    <img src="./assets/img/Button-Slider-right.svg" alt="derecha">
+                    <img src="./assets/img/Button-Slider-right.svg" alt="derecha" id='slider-right'>
                 </button>
             </div>
         </div>
@@ -86,6 +128,7 @@
     <script src="../src/scripts/elementosDOM.js"></script>
     <script src="../src/scripts/eventosHeader.js"></script>
     <script src="../src/scripts/terminosTendencia.js"></script>
+    <script src="../src/scripts/eventosGifsTrending.js"></script>
 </body>
 
 </html>

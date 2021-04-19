@@ -40,6 +40,9 @@
         color: $primary-color;
         cursor: pointer;
     }
+    a:hover {
+        text-decoration: underline;
+    }
 }
 
 .container-input {
