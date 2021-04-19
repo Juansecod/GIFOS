@@ -47,7 +47,6 @@ function createCardTrending(gif, index) {
             img.style.backgroundImage = `linear-gradient(rgba(87, 46, 229, 0.7), rgba(87, 46, 229, 0.7)), url(${urlImg})`;
         }
     });
-    console.log(cardTrending);
     return cardTrending;
 }
 
