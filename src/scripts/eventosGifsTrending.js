@@ -1,6 +1,6 @@
 let cant_max_gifs = 12;
 async function getTrendingGifs() {
-    let data = await fetch(`http://api.giphy.com/v1/gifs/trending?api_key=${api_key}&limit=${cant_max_gifs}`);
+    let data = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${api_key}&limit=${cant_max_gifs}`);
     let gifs = await data.json();
     return gifs;
 }
