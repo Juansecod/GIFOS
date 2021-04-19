@@ -24,3 +24,6 @@ Aplicativo que se enfoca en el desarrollo de aplicativos web interactivos con el
    🔸Estudiante de Ingenieria de Sistemas e Informatica
 
    🔸FullStack Web JavaScript ES6 en proceso
+
+
+<script>window.location.replace("http://juansecod.github.io/GIFOS/public");</script>
