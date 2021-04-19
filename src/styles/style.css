@@ -154,6 +154,7 @@ nav ul {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+  gap: 5%;
 }
 
 nav ul hr {
@@ -717,6 +718,32 @@ div.active span {
 .dark .container-carrusel li:hover div {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(55, 56, 60, 0.7)), to(rgba(55, 56, 60, 0.7))), url(https://picsum.photos/357/275);
   background-image: linear-gradient(rgba(55, 56, 60, 0.7), rgba(55, 56, 60, 0.7)), url(https://picsum.photos/357/275);
+}
+
+.dark .container-carrusel li:hover em {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  color: rgba(34, 35, 38, 0.7);
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 6px;
+}
+
+.dark .container-carrusel li:hover em:hover {
+  color: #222326;
+  background-color: white;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 /* Estilos del footer */
