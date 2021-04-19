@@ -18,6 +18,7 @@ Aplicativo que se enfoca en el desarrollo de aplicativos web interactivos con el
     ⚪ CSS3
 
     ⚪ JavaScript ES6
+
 # 👨‍💻 Equipo de Trabajo
    Juan Sebastian Rios Valencia
 
@@ -25,5 +26,3 @@ Aplicativo que se enfoca en el desarrollo de aplicativos web interactivos con el
 
    🔸FullStack Web JavaScript ES6 en proceso
 
-
-<script>window.location.replace("http://juansecod.github.io/GIFOS/public");</script>
