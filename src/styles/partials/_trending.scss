@@ -51,19 +51,15 @@
         min-width: auto;
         div {
             @include tamañosGifTrending;
-            background-image: url("https://picsum.photos/357/275");
             padding-top: 3%;
             background-size: cover;
             display: flex;
             flex-wrap: wrap;
-            align-content: space-between;
+            align-content: space-around;
             justify-content: flex-end;
         }
     }
     li:hover {
-        div {
-            background-image: linear-gradient( rgba($primary-color, 0.7), rgba($primary-color, 0.7)), url(https://picsum.photos/357/275);
-        }
         em {
             display: flex;
             justify-content: center;
@@ -95,6 +91,9 @@
             margin: 0;
             color: white;
         }
+        h2 {
+            font-size: 1.1em;
+        }
     }
 }
 
@@ -106,6 +105,8 @@
     height: auto;
     max-height: 40px;
     max-width: 142.797px;
+    position: relative;
+    top: -10%;
     li {
         margin: 0;
         padding: 0;
@@ -125,9 +126,6 @@
     }
     .container-carrusel {
         li:hover {
-            div {
-                background-image: linear-gradient( rgba($background-dark-mode, 0.7), rgba($background-dark-mode, 0.7)), url(https://picsum.photos/357/275);
-            }
             em {
                 color: rgba($background-black, 0.7);
             }

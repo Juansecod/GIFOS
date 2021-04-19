@@ -625,7 +625,6 @@ div.active span {
   height: calc(24.5vw - 100px);
   min-height: 187px;
   max-height: 275px;
-  background-image: url("https://picsum.photos/357/275");
   padding-top: 3%;
   background-size: cover;
   display: -webkit-box;
@@ -633,16 +632,11 @@ div.active span {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -ms-flex-line-pack: justify;
-      align-content: space-between;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-}
-
-.container-carrusel li:hover div {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(87, 46, 229, 0.7)), to(rgba(87, 46, 229, 0.7))), url(https://picsum.photos/357/275);
-  background-image: linear-gradient(rgba(87, 46, 229, 0.7), rgba(87, 46, 229, 0.7)), url(https://picsum.photos/357/275);
 }
 
 .container-carrusel li:hover em {
@@ -687,6 +681,10 @@ div.active span {
   color: white;
 }
 
+.container-carrusel .text h2 {
+  font-size: 1.1em;
+}
+
 .icons {
   float: right;
   list-style: none;
@@ -697,6 +695,8 @@ div.active span {
   height: auto;
   max-height: 40px;
   max-width: 142.797px;
+  position: relative;
+  top: -10%;
 }
 
 .icons li {
@@ -712,11 +712,6 @@ div.active span {
 .dark .trending h2,
 .dark .trending p {
   color: #ffffff;
-}
-
-.dark .container-carrusel li:hover div {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(55, 56, 60, 0.7)), to(rgba(55, 56, 60, 0.7))), url(https://picsum.photos/357/275);
-  background-image: linear-gradient(rgba(55, 56, 60, 0.7), rgba(55, 56, 60, 0.7)), url(https://picsum.photos/357/275);
 }
 
 .dark .container-carrusel li:hover em {
