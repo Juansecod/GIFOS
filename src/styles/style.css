@@ -17,10 +17,6 @@
 /* Variables donde se guarda la familia de la fuente */
 /*Diseño Desktop*/
 /* Reglas Basicas para todos los componentes */
-body {
-  max-width: 1440px;
-}
-
 /* Animaciones */
 @-webkit-keyframes animation-nav {
   0% {
@@ -36,6 +32,28 @@ body {
   }
   100% {
     top: 95px;
+  }
+}
+
+@-webkit-keyframes spinner {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
@@ -59,9 +77,9 @@ body.dark::-webkit-scrollbar-thumb {
 
 /* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
 body::-webkit-scrollbar-thumb:hover {
-  background: #50E3C2;
-  background: -webkit-gradient(linear, left bottom, left top, from(#50E3C2), to(#5072e3));
-  background: linear-gradient(0deg, #50E3C2 0%, #5072e3 100%);
+  background: #9CAFC3;
+  background: -webkit-gradient(linear, left bottom, left top, from(#9CAFC3), to(#5072e3));
+  background: linear-gradient(0deg, #9CAFC3 0%, #5072e3 100%);
   -webkit-box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
 }
@@ -80,6 +98,10 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-track:hover,
 body::-webkit-scrollbar-track:active {
   background: #d4d4d4;
+}
+
+body {
+  max-width: 1440px;
 }
 
 main,
@@ -103,11 +125,61 @@ a {
   text-decoration: none;
 }
 
+.spinner {
+  opacity: 1;
+  position: relative;
+  -webkit-transition: opacity linear 0.1s;
+  transition: opacity linear 0.1s;
+}
+
+.spinner::before {
+  -webkit-animation: 2s linear infinite spinner;
+          animation: 2s linear infinite spinner;
+  border: solid 3px rgba(34, 35, 38, 0.1);
+  border-left: 6px solid rgba(80, 227, 194, 0.15);
+  border-right: 6px solid rgba(80, 227, 194, 0.15);
+  border-bottom: 6px solid rgba(80, 227, 194, 0.15);
+  border-top: 6px solid rgba(87, 46, 229, 0.9);
+  border-radius: 50%;
+  content: "";
+  height: 40px;
+  position: absolute;
+  width: 40px;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+}
+
 /* Linea en modo oscuro */
 .dark .line {
   width: 100%;
   height: 5px;
   background-color: #000000;
+}
+
+.dark .spinner {
+  opacity: 1;
+  position: relative;
+  -webkit-transition: opacity linear 0.1s;
+  transition: opacity linear 0.1s;
+}
+
+.dark .spinner::before {
+  -webkit-animation: 2s linear infinite spinner;
+          animation: 2s linear infinite spinner;
+  border: solid 3px rgba(34, 35, 38, 0.1);
+  border-left: 6px solid rgba(156, 175, 195, 0.15);
+  border-right: 6px solid rgba(156, 175, 195, 0.15);
+  border-bottom: 6px solid rgba(156, 175, 195, 0.15);
+  border-top: 6px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  content: "";
+  height: 40px;
+  position: absolute;
+  width: 40px;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
 }
 
 /* Diseños del header para diseño desktop */
@@ -586,6 +658,10 @@ div.active span {
   padding: 0 0 12.64% 0;
 }
 
+.container-carrusel .btn-left {
+  display: none;
+}
+
 .container-carrusel button {
   width: 40px;
   height: 40px;
@@ -637,6 +713,7 @@ div.active span {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  background-size: 100% 100%;
 }
 
 .container-carrusel li:hover em {
@@ -780,10 +857,14 @@ footer .fab:hover {
     margin-right: calc((100vw - 1440px) / 2);
     background: #572EE5;
     background: radial-gradient(circle, #ffffff 0%, #572EE5 100%);
+    -webkit-box-shadow: 0px 50px 50px 0px #ffffff;
+            box-shadow: 0px 50px 50px 0px #ffffff;
   }
   body.dark {
     background: #572EE5;
     background: radial-gradient(circle, #000000 0%, #37383C 100%);
+    -webkit-box-shadow: 0px 50px 50px 0px #50E3C2;
+            box-shadow: 0px 50px 50px 0px #50E3C2;
   }
 }
 
@@ -841,6 +922,33 @@ footer .fab:hover {
   }
   nav .ul-active li:first-child {
     padding-top: 32px;
+    padding-bottom: 0;
+  }
+  nav .ul-active li:first-child::after {
+    margin-top: 12.5px;
+    margin-left: calc(50vw - 10%);
+    content: "";
+    display: block;
+    width: 20%;
+    height: 5px;
+    background-color: rgba(156, 175, 195, 0.3);
+    border-radius: 15%;
+  }
+  nav .ul-active li:nth-child(3) {
+    padding-top: 20px;
+  }
+  nav .ul-active li:nth-last-child(2) {
+    padding-top: 0;
+  }
+  nav .ul-active li:nth-last-child(2)::before {
+    margin-bottom: 20px;
+    margin-left: calc(50vw - 10%);
+    content: "";
+    display: block;
+    width: 20%;
+    height: 5px;
+    background-color: rgba(156, 175, 195, 0.3);
+    border-radius: 15%;
   }
   nav .ul-active li:last-child {
     display: none;

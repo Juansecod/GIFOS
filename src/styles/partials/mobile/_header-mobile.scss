@@ -46,9 +46,36 @@ nav {
         }
         li:first-child {
             padding-top: 32px;
+            padding-bottom: 0;
+            &::after {
+                margin-top: 12.5px;
+                margin-left: calc(50vw - 10%);
+                content: "";
+                display: block;
+                width: 20%;
+                height: 5px;
+                background-color: rgba(156, 175, 195, 0.3);
+                border-radius: 15%;
+            }
+        }
+        li:nth-child(3) {
+            padding-top: 20px;
+        }
+        li:nth-last-child(2) {
+            padding-top: 0;
+            &::before {
+                margin-bottom: 20px;
+                margin-left: calc(50vw - 10%);
+                content: "";
+                display: block;
+                width: 20%;
+                height: 5px;
+                background-color: rgba(156, 175, 195, 0.3);
+                border-radius: 15%;
+            }
         }
         li:last-child {
-            display: none
+            display: none;
         }
         #dark-mode:hover,
         a:hover {

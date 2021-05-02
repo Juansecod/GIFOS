@@ -23,10 +23,12 @@
         margin-right: calc((100vw - 1440px) / 2);
         background: $primary-color;
         background: radial-gradient(circle, $primary-color-dark 0%, $primary-color 100%);
+        box-shadow: 0px 50px 50px 0px $primary-color-dark;
     }
     body.dark {
         background: $primary-color;
         background: radial-gradient(circle, $nav-mobile-dark 0%, $background-dark-mode 100%);
+        box-shadow: 0px 50px 50px 0px $secundary-color;
     }
 }
 
