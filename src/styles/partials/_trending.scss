@@ -50,6 +50,7 @@
         gap: 15px;
         grid-column: 2 / 5;
         overflow: hidden;
+        min-height: 60px;
     }
     li {
         @include tamañosGifTrending;
