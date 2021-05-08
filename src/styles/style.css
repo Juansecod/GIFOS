@@ -660,6 +660,7 @@ div.active span {
 
 .container-carrusel .btn-left {
   display: none;
+  opacity: 0;
 }
 
 .container-carrusel button {
@@ -670,6 +671,8 @@ div.active span {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
 }
 
 .container-carrusel .gifs {
@@ -692,6 +695,11 @@ div.active span {
   min-height: 187px;
   max-height: 275px;
   min-width: auto;
+  position: relative;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 2.5s, 2.5s;
+          transition-duration: 2.5s, 2.5s;
 }
 
 .container-carrusel li div {

@@ -13,4 +13,6 @@ const slider_right = document.getElementById('slider-right');
 const search_buttons = document.getElementsByClassName('btn-search');
 const cardsTrending = document.getElementsByClassName('card-trending');
 const gifsTrending = document.getElementById('gifsTrending');
+const btnRight = document.getElementById("btn-right");
+const btnLeft = document.getElementById("btn-left");
 const api_key = "s2kC6KgZTvPtg4aWleAoQK73EjfNCSFi";
