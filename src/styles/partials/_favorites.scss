@@ -1,0 +1,23 @@
+/* Estilios seccion favoritos */
+
+.favorites {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 11px;
+    display: none;
+}
+
+
+/* Estilios modo oscuro seccion favoritos */
+
+.dark {
+    .favorites {
+        background-color: $background-dark-mode;
+        h2 {
+            color: $primary-color-dark;
+        }
+    }
+}

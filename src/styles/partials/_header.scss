@@ -19,6 +19,9 @@ nav {
         width: 68px;
         height: 60px;
     }
+    .input-search:focus {
+        outline: none;
+    }
     ul {
         width: 55%;
         list-style: none;
