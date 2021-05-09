@@ -168,4 +168,8 @@ a {
             margin: -25px 0 0 -25px;
         }
     }
+    main,
+    footer {
+        background-color: $background-dark-mode;
+    }
 }
