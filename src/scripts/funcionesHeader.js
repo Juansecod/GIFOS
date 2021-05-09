@@ -72,7 +72,7 @@ const events = {
         });
 
         btnLeft.addEventListener('mouseover', function() {
-            sliderLeft.setAttribute('src', "./assets/img/vutton-slider-left-hover.svg");
+            sliderLeft.setAttribute('src', "./assets/img/button-slider-left-hover.svg");
         });
         btnLeft.addEventListener('mouseout', function() {
             sliderLeft.setAttribute('src', "./assets/img/button-slider-left.svg");
