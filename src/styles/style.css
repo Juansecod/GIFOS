@@ -246,6 +246,7 @@ nav {
 nav .logo {
   width: 68px;
   height: 60px;
+  cursor: pointer;
 }
 
 nav .input-search:focus {
@@ -500,6 +501,8 @@ div.active span {
       -ms-flex-align: center;
           align-items: center;
   padding-bottom: 94px;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
 }
 
 .search h2 {
@@ -689,6 +692,10 @@ div.active span {
       flex-wrap: wrap;
   padding-top: 11px;
   display: none;
+  min-height: 38.46vw;
+  opacity: 0;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
 }
 
 /* Estilios modo oscuro seccion favoritos */

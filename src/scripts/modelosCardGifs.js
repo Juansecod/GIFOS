@@ -70,7 +70,11 @@ function createIcons(gif) {
 
 function createTextCard(user, title) {
     let pUser = document.createElement('p');
-    (user == "") ? pUser.textContent = "anonymous": pUser.textContent = user;
+    if (user == "") {
+        pUser.textContent = "anonymous";
+    } else {
+        pUser.textContent = user;
+    }
     let h2Title = document.createElement('h2');
     h2Title.textContent = title;
     let text = document.createElement('span');

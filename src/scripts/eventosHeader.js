@@ -24,7 +24,11 @@ btn_dark_mode.addEventListener('click', function tema() {
         logo.src = "./assets/img/logo-desktop.svg";
         srcBtnSearch();
         meta_theme_color.content = "#572EE5";
-        list.classList == "" ? menu.src = "./assets/img/burger.svg" : menu.src = "./assets/img/close.svg";
+        if (list.classList == "") {
+            menu.src = "./assets/img/burger.svg";
+        } else {
+            menu.src = "./assets/img/close.svg";
+        }
         slider_left.src = "./assets/img/button-slider-left.svg";
         slider_right.src = "./assets/img/Button-Slider-right.svg";
         localStorage.setItem('modo', 0);
@@ -34,15 +38,20 @@ btn_dark_mode.addEventListener('click', function tema() {
         logo.src = "./assets/img/Logo-modo-noc.svg";
         srcBtnSearch();
         meta_theme_color.content = "#37383C";
-        list.classList == "" ? menu.src = "./assets/img/burger-modo-noct.svg" : menu.src = "./assets/img/close-modo-noct.svg";
+        if (list.classList == "") {
+            menu.src = "./assets/img/burger-modo-noct.svg";
+        } else {
+            menu.src = "./assets/img/close-modo-noct.svg";
+        }
         slider_left.src = "./assets/img/button-slider-left-md-noct.svg";
         slider_right.src = "./assets/img/button-slider-right-md-noct.svg";
         localStorage.setItem('modo', 1);
     }
 });
 
+
 /* Evento click menu hambruguesa */
-menu.addEventListener('click', () => {
+menu.addEventListener('click', menuEvent = () => {
     if (list.classList == "ul-active") {
         list.style.transform = "translateY(-900px)";
         list.style.transition = "transform 1.5s";
@@ -62,6 +71,40 @@ menu.addEventListener('click', () => {
     }
 });
 
+// Eventos SPA
+favNav.addEventListener('click', () => {
+    if (screen.width < 768) {
+        menuEvent();
+        search.style.transition = "none";
+        containerMyGifs.style.transition = "none";
+        containerFavoritos.style.transition = "opacity 1s";
+    }
+    events.favorites();
+});
+
+myGifsNav.addEventListener('click', () => {
+    if (screen.width < 768) {
+        menuEvent();
+        search.style.transition = "none";
+        containerFavoritos.style.transition = "none";
+        containerMyGifs.style.transition = "opacity 1s";
+    }
+    events.myGifs();
+});
+
+logo.addEventListener('click', () => {
+    if (screen.width < 768) {
+        if (list.classList == "ul-active") {
+            menuEvent();
+            search.style.transition = "none";
+            containerFavoritos.style.transition = "none";
+            containerMyGifs.style.transition = "opacity 1s";
+        }
+    }
+    events.search();
+});
+
+// Eventos Barra Busqueda Header
 function srcBtnSearch() {
     let index = 0;
     while (index < search_buttons.length) {
