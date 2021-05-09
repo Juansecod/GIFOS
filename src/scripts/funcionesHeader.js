@@ -11,7 +11,7 @@ let ocultarSearch = (container) => {
 
 let ocultarContainer = (active, container) => {
     let activeId = active().id;
-    if (activeId == "a-favs") {
+    if (activeId == "a-favs" && container.id != "favorites") {
         containerFavoritos.style.opacity = 0;
         setTimeout(() => {
             containerFavoritos.style.display = "none";
@@ -20,7 +20,7 @@ let ocultarContainer = (active, container) => {
         setTimeout(() => {
             container.style.opacity = 1;
         }, 1250);
-    } else {
+    } else if (container.id != "my-gifs") {
         containerMyGifs.style.opacity = 0;
         setTimeout(() => {
             containerMyGifs.style.display = "none";
