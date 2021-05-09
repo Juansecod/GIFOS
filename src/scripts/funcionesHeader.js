@@ -63,4 +63,34 @@ const events = {
         let aMyGifs = document.getElementById("a-misGifs");
         aMyGifs.classList.add("active");
     },
+    btnTrending: () => {
+        btnRight.addEventListener('mouseover', function() {
+            sliderRight.setAttribute('src', "./assets/img/Button-Slider-right-hover.svg");
+        });
+        btnRight.addEventListener('mouseout', function() {
+            sliderRight.setAttribute('src', "./assets/img/Button-Slider-right.svg");
+        });
+
+        btnLeft.addEventListener('mouseover', function() {
+            sliderLeft.setAttribute('src', "./assets/img/Button-Slider-left-hover.svg");
+        });
+        btnLeft.addEventListener('mouseout', function() {
+            sliderLeft.setAttribute('src', "./assets/img/Button-Slider-left.svg");
+        });
+    },
+    btnTrendingNoct: () => {
+        btnRight.addEventListener('mouseover', function() {
+            sliderRight.setAttribute('src', "./assets/img/btn-slider-right-hover-md-noc.svg");
+        });
+        btnRight.addEventListener('mouseout', function() {
+            sliderRight.setAttribute('src', "./assets/img/button-slider-right-md-noct.svg");
+        });
+
+        btnLeft.addEventListener('mouseover', function() {
+            sliderLeft.setAttribute('src', "./assets/img/btn-slider-left-hover-md-noc.svg");
+        });
+        btnLeft.addEventListener('mouseout', function() {
+            sliderLeft.setAttribute('src', "./assets/img/button-slider-left-md-noct.svg");
+        });
+    }
 };

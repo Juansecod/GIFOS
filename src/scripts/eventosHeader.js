@@ -1,5 +1,7 @@
 let myStorage = window.localStorage;
-
+if (body.classList != "dark") {
+    events.btnTrending();
+}
 /* Aplica ultimo tema usado */
 if (myStorage.modo == undefined) {
     localStorage.setItem('modo', 0);
@@ -11,10 +13,13 @@ if (myStorage.modo == undefined) {
         menu.src = "./assets/img/burger-modo-noct.svg";
         srcBtnSearch();
         meta_theme_color.content = "#37383C";
-        slider_left.src = "./assets/img/button-slider-left-md-noct.svg";
-        slider_right.src = "./assets/img/button-slider-right-md-noct.svg";
+        sliderLeft.src = "./assets/img/button-slider-left-md-noct.svg";
+        sliderRight.src = "./assets/img/button-slider-right-md-noct.svg";
+        events.btnTrendingNoct();
     }
 }
+
+
 
 /* Evento click cambiar modo de vista */
 btn_dark_mode.addEventListener('click', function tema() {
@@ -29,8 +34,9 @@ btn_dark_mode.addEventListener('click', function tema() {
         } else {
             menu.src = "./assets/img/close.svg";
         }
-        slider_left.src = "./assets/img/button-slider-left.svg";
-        slider_right.src = "./assets/img/Button-Slider-right.svg";
+        sliderLeft.src = "./assets/img/button-slider-left.svg";
+        sliderRight.src = "./assets/img/Button-Slider-right.svg";
+        events.btnTrending();
         localStorage.setItem('modo', 0);
     } else {
         body.classList.add("dark");
@@ -43,8 +49,9 @@ btn_dark_mode.addEventListener('click', function tema() {
         } else {
             menu.src = "./assets/img/close-modo-noct.svg";
         }
-        slider_left.src = "./assets/img/button-slider-left-md-noct.svg";
-        slider_right.src = "./assets/img/button-slider-right-md-noct.svg";
+        sliderLeft.src = "./assets/img/button-slider-left-md-noct.svg";
+        sliderRight.src = "./assets/img/button-slider-right-md-noct.svg";
+        events.btnTrendingNoct();
         localStorage.setItem('modo', 1);
     }
 });

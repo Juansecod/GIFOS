@@ -53,18 +53,3 @@ if (window.screen.width > 768) {
         });
     });
 }
-
-// Hover botones Trending
-btnRight.addEventListener('mouseover', function() {
-    sliderRight.setAttribute('src', "./assets/img/Button-Slider-right-hover.svg");
-});
-btnRight.addEventListener('mouseout', function() {
-    sliderRight.setAttribute('src', "./assets/img/Button-Slider-right.svg");
-});
-
-btnLeft.addEventListener('mouseover', function() {
-    sliderLeft.setAttribute('src', "./assets/img/Button-Slider-left-hover.svg");
-});
-btnLeft.addEventListener('mouseout', function() {
-    sliderLeft.setAttribute('src', "./assets/img/Button-Slider-left.svg");
-});
