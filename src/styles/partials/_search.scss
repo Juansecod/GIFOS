@@ -6,7 +6,7 @@
     flex-direction: column;
     align-items: center;
     padding-bottom: 94px;
-    transition: opacity 1s;
+    transition: opacity $duration-animation;
     h2 {
         margin: 76px 0 24px 0;
         min-width: 286px;
@@ -61,6 +61,7 @@
     margin-bottom: 5.07%;
     font-size: 16px;
     font-family: $font-family-roboto;
+    transition: box-shadow $duration-animation;
     .input-search {
         width: calc(100% - 25px);
         height: 45px;
@@ -74,30 +75,88 @@
             outline: none;
         }
     }
+    .btn-search {
+        order: 2;
+    }
+    .btn-close {
+        display: none;
+    }
+    .autocomplete {
+        overflow-y: hidden;
+        height: 0px;
+        transition: height $duration-animation;
+        /* animation: heightAnimation $duration-animation reverse; */
+        div {
+            display: none;
+        }
+    }
+}
+
+@keyframes widthAnimation {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes heightAnimation {
+    0% {
+        height: 0px;
+    }
+    100% {
+        height: 163px;
+    }
 }
 
 div.active {
     padding-left: 21px;
     padding-right: 21px;
     justify-content: stretch;
+    box-shadow: 0px 12px 20px 0px $primary-color;
     .input-search {
         order: 2;
         width: calc(100% - 50px);
         margin: 0 5px 0 5px;
     }
-    #btn-search {
+    .btn-search {
         order: 1;
     }
-    #btn-close {
+    .btn-close {
+        display: inline-block;
         justify-self: right;
         order: 3;
         width: 20px;
     }
+    span {
+        border-radius: 10%;
+        opacity: 0.5;
+        width: 100%;
+        order: 4;
+        height: 1px;
+        background-color: $active-color;
+        animation: widthAnimation $duration-animation;
+    }
+    div:last-child {
+        margin-bottom: 0px;
+    }
+}
+
+.active .autocomplete {
+    display: flex;
+    flex-wrap: wrap;
+    order: 1000;
+    width: 100%;
+    animation: heightAnimation $duration-animation;
+    max-height: 163px;
+    height: 163px;
+    margin-top: 0;
     div {
         width: 100%;
+        display: flex;
         text-align: start;
         margin-top: 10px;
-        order: 1000;
         color: $active-color;
         em {
             margin-right: 5px;
@@ -105,14 +164,6 @@ div.active {
     }
     div:last-child {
         margin-bottom: 18px;
-    }
-    span {
-        border-radius: 10%;
-        opacity: 0.5;
-        order: 4;
-        width: 100%;
-        height: 1px;
-        background-color: $active-color;
     }
 }
 
@@ -135,5 +186,8 @@ div.active {
                 color: $primary-color-dark;
             }
         }
+    }
+    div.active {
+        box-shadow: 0px 12px 20px 0px $secundary-color;
     }
 }

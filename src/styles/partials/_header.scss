@@ -4,6 +4,8 @@ header {
     position: sticky;
     top: 0px;
     background-color: rgba($primary-color-dark, 50%);
+    z-index: 1000;
+    transition: box-shadow $duration-animation;
     box-shadow: 0 2px 4px 1px rgba(156, 175, 195, 0.55);
 }
 
@@ -88,6 +90,61 @@ nav {
 }
 
 
+/* Barra de busqueda Header */
+
+.container-input-header {
+    width: calc(40% - 19%);
+    transition-property: opacity width;
+    transition-duration: $duration-animation $duration-animation;
+    height: auto;
+    border: 1px solid $primary-color;
+    border-radius: 27px;
+    padding-left: 55px;
+    padding-right: 55px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 16px;
+    font-family: $font-family-roboto;
+    .input-search {
+        width: calc(100% - 25px);
+        height: 45px;
+        margin: 0 5px 0 0;
+        font-size: 16px;
+        border: none;
+    }
+    .btn-search {
+        order: 2;
+    }
+    .btn-close {
+        display: none;
+    }
+    .input-search:-ms-input-placeholder {
+        color: $active-color;
+    }
+    .autocomplete {
+        overflow-y: hidden;
+        transition: height $duration-animation;
+        height: 0px;
+        font-weight: 200;
+        div {
+            display: none;
+        }
+    }
+}
+
+#search-header {
+    position: absolute;
+    top: 30px;
+    left: calc(40% - 18%);
+    max-width: 339.25px;
+    min-width: 160.94px;
+    background-color: $primary-color-dark;
+    box-shadow: 0 0 0 0;
+}
+
+
 /* Estilos modo oscuro en el header */
 
 .dark {
@@ -129,91 +186,7 @@ nav {
             color: $primary-color-dark;
         }
     }
-}
-
-.container-input-header {
-    width: calc(40% - 68px);
-    height: auto;
-    border: 1px solid $primary-color;
-    border-radius: 27px;
-    padding-left: 55px;
-    padding-right: 55px;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    font-size: 16px;
-    font-family: $font-family-roboto;
-    .input-search {
-        width: calc(100% - 25px);
-        height: 45px;
-        margin: 0 5px 0 0;
-        font-size: 16px;
-        border: none;
-    }
-    .input-search:-ms-input-placeholder {
-        color: $active-color;
-    }
-}
-
-div.active {
-    padding-left: 21px;
-    padding-right: 21px;
-    justify-content: stretch;
-    .input-search {
-        order: 2;
-        width: calc(100% - 50px);
-        margin: 0 5px 0 5px;
-    }
-    #btn-search-header {
-        order: 1;
-    }
-    #btn-close-header {
-        justify-self: right;
-        order: 3;
-        width: 20px;
-    }
-    div {
-        width: 100%;
-        text-align: start;
-        margin-top: 10px;
-        order: 1000;
-        color: $active-color;
-        em {
-            margin-right: 5px;
-        }
-    }
-    div:last-child {
-        margin-bottom: 18px;
-    }
-    span {
-        border-radius: 10%;
-        opacity: 0.5;
-        order: 4;
-        width: 100%;
-        height: 1px;
-        background-color: $active-color;
-    }
-}
-
-
-/* Estilios modo oscuro seccion search */
-
-.dark {
-    .search {
+    #search-header {
         background-color: $background-dark-mode;
-        h2,
-        h3,
-        p,
-        a {
-            color: $primary-color-dark
-        }
-        .container-input {
-            border-color: $primary-color-dark;
-            .input-search {
-                background-color: $background-dark-mode;
-                color: $primary-color-dark;
-            }
-        }
     }
 }

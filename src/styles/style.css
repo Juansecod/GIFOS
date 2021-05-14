@@ -223,6 +223,11 @@ header {
   position: sticky;
   top: 0px;
   background-color: white;
+  z-index: 1000;
+  -webkit-transition: -webkit-box-shadow 1s;
+  transition: -webkit-box-shadow 1s;
+  transition: box-shadow 1s;
+  transition: box-shadow 1s, -webkit-box-shadow 1s;
   -webkit-box-shadow: 0 2px 4px 1px rgba(156, 175, 195, 0.55);
           box-shadow: 0 2px 4px 1px rgba(156, 175, 195, 0.55);
 }
@@ -329,6 +334,78 @@ nav ul .active {
   display: none;
 }
 
+/* Barra de busqueda Header */
+.container-input-header {
+  width: calc(40% - 19%);
+  -webkit-transition-property: opacity width;
+  transition-property: opacity width;
+  -webkit-transition-duration: 1s 1s;
+          transition-duration: 1s 1s;
+  height: auto;
+  border: 1px solid #572EE5;
+  border-radius: 27px;
+  padding-left: 55px;
+  padding-right: 55px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+}
+
+.container-input-header .input-search {
+  width: calc(100% - 25px);
+  height: 45px;
+  margin: 0 5px 0 0;
+  font-size: 16px;
+  border: none;
+}
+
+.container-input-header .btn-search {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+.container-input-header .btn-close {
+  display: none;
+}
+
+.container-input-header .input-search:-ms-input-placeholder {
+  color: #9CAFC3;
+}
+
+.container-input-header .autocomplete {
+  overflow-y: hidden;
+  -webkit-transition: height 1s;
+  transition: height 1s;
+  height: 0px;
+  font-weight: 200;
+}
+
+.container-input-header .autocomplete div {
+  display: none;
+}
+
+#search-header {
+  position: absolute;
+  top: 30px;
+  left: calc(40% - 18%);
+  max-width: 339.25px;
+  min-width: 160.94px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 0 0;
+          box-shadow: 0 0 0 0;
+}
+
 /* Estilos modo oscuro en el header */
 .dark header {
   background-color: #37383C;
@@ -372,119 +449,8 @@ nav ul .active {
   color: #ffffff;
 }
 
-.container-input-header {
-  width: calc(40% - 68px);
-  height: auto;
-  border: 1px solid #572EE5;
-  border-radius: 27px;
-  padding-left: 55px;
-  padding-right: 55px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  font-size: 16px;
-  font-family: "Roboto", sans-serif;
-}
-
-.container-input-header .input-search {
-  width: calc(100% - 25px);
-  height: 45px;
-  margin: 0 5px 0 0;
-  font-size: 16px;
-  border: none;
-}
-
-.container-input-header .input-search:-ms-input-placeholder {
-  color: #9CAFC3;
-}
-
-div.active {
-  padding-left: 21px;
-  padding-right: 21px;
-  -webkit-box-pack: stretch;
-      -ms-flex-pack: stretch;
-          justify-content: stretch;
-}
-
-div.active .input-search {
-  -webkit-box-ordinal-group: 3;
-      -ms-flex-order: 2;
-          order: 2;
-  width: calc(100% - 50px);
-  margin: 0 5px 0 5px;
-}
-
-div.active #btn-search-header {
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
-}
-
-div.active #btn-close-header {
-  -ms-grid-column-align: right;
-      justify-self: right;
-  -webkit-box-ordinal-group: 4;
-      -ms-flex-order: 3;
-          order: 3;
-  width: 20px;
-}
-
-div.active div {
-  width: 100%;
-  text-align: start;
-  margin-top: 10px;
-  -webkit-box-ordinal-group: 1001;
-      -ms-flex-order: 1000;
-          order: 1000;
-  color: #9CAFC3;
-}
-
-div.active div em {
-  margin-right: 5px;
-}
-
-div.active div:last-child {
-  margin-bottom: 18px;
-}
-
-div.active span {
-  border-radius: 10%;
-  opacity: 0.5;
-  -webkit-box-ordinal-group: 5;
-      -ms-flex-order: 4;
-          order: 4;
-  width: 100%;
-  height: 1px;
-  background-color: #9CAFC3;
-}
-
-/* Estilios modo oscuro seccion search */
-.dark .search {
+.dark #search-header {
   background-color: #37383C;
-}
-
-.dark .search h2,
-.dark .search h3,
-.dark .search p,
-.dark .search a {
-  color: #ffffff;
-}
-
-.dark .search .container-input {
-  border-color: #ffffff;
-}
-
-.dark .search .container-input .input-search {
-  background-color: #37383C;
-  color: #ffffff;
 }
 
 /* Estilios seccion search */
@@ -574,6 +540,10 @@ div.active span {
   margin-bottom: 5.07%;
   font-size: 16px;
   font-family: "Roboto", sans-serif;
+  -webkit-transition: -webkit-box-shadow 1s;
+  transition: -webkit-box-shadow 1s;
+  transition: box-shadow 1s;
+  transition: box-shadow 1s, -webkit-box-shadow 1s;
 }
 
 .container-input .input-search {
@@ -592,12 +562,72 @@ div.active span {
   outline: none;
 }
 
+.container-input .btn-search {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+.container-input .btn-close {
+  display: none;
+}
+
+.container-input .autocomplete {
+  overflow-y: hidden;
+  height: 0px;
+  -webkit-transition: height 1s;
+  transition: height 1s;
+  /* animation: heightAnimation $duration-animation reverse; */
+}
+
+.container-input .autocomplete div {
+  display: none;
+}
+
+@-webkit-keyframes widthAnimation {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes widthAnimation {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@-webkit-keyframes heightAnimation {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: 163px;
+  }
+}
+
+@keyframes heightAnimation {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: 163px;
+  }
+}
+
 div.active {
   padding-left: 21px;
   padding-right: 21px;
   -webkit-box-pack: stretch;
       -ms-flex-pack: stretch;
           justify-content: stretch;
+  -webkit-box-shadow: 0px 12px 20px 0px #572EE5;
+          box-shadow: 0px 12px 20px 0px #572EE5;
 }
 
 div.active .input-search {
@@ -608,13 +638,14 @@ div.active .input-search {
   margin: 0 5px 0 5px;
 }
 
-div.active #btn-search {
+div.active .btn-search {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
           order: 1;
 }
 
-div.active #btn-close {
+div.active .btn-close {
+  display: inline-block;
   -ms-grid-column-align: right;
       justify-self: right;
   -webkit-box-ordinal-group: 4;
@@ -623,33 +654,56 @@ div.active #btn-close {
   width: 20px;
 }
 
-div.active div {
-  width: 100%;
-  text-align: start;
-  margin-top: 10px;
-  -webkit-box-ordinal-group: 1001;
-      -ms-flex-order: 1000;
-          order: 1000;
-  color: #9CAFC3;
-}
-
-div.active div em {
-  margin-right: 5px;
-}
-
-div.active div:last-child {
-  margin-bottom: 18px;
-}
-
 div.active span {
   border-radius: 10%;
   opacity: 0.5;
+  width: 100%;
   -webkit-box-ordinal-group: 5;
       -ms-flex-order: 4;
           order: 4;
-  width: 100%;
   height: 1px;
   background-color: #9CAFC3;
+  -webkit-animation: widthAnimation 1s;
+          animation: widthAnimation 1s;
+}
+
+div.active div:last-child {
+  margin-bottom: 0px;
+}
+
+.active .autocomplete {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-ordinal-group: 1001;
+      -ms-flex-order: 1000;
+          order: 1000;
+  width: 100%;
+  -webkit-animation: heightAnimation 1s;
+          animation: heightAnimation 1s;
+  max-height: 163px;
+  height: 163px;
+  margin-top: 0;
+}
+
+.active .autocomplete div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: start;
+  margin-top: 10px;
+  color: #9CAFC3;
+}
+
+.active .autocomplete div em {
+  margin-right: 5px;
+}
+
+.active .autocomplete div:last-child {
+  margin-bottom: 18px;
 }
 
 /* Estilios modo oscuro seccion search */
@@ -671,6 +725,11 @@ div.active span {
 .dark .search .container-input .input-search {
   background-color: #37383C;
   color: #ffffff;
+}
+
+.dark div.active {
+  -webkit-box-shadow: 0px 12px 20px 0px #50E3C2;
+          box-shadow: 0px 12px 20px 0px #50E3C2;
 }
 
 /* Estilios seccion favoritos */

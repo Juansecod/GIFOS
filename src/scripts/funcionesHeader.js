@@ -9,7 +9,7 @@ let ocultarSearch = (container) => {
     }, 1250);
 };
 
-let ocultarContainer = (active, container) => {
+let ocultarContainer = (container) => {
     let activeId = active().id;
     if (activeId == "a-favs" && container.id != "favorites") {
         containerFavoritos.style.opacity = 0;
@@ -34,12 +34,23 @@ let ocultarContainer = (active, container) => {
 
 let active = () => { return document.querySelector(".active"); };
 
+function srcBtnInputSearch() {
+    let index = 0;
+    while (index < search_buttons.length) {
+        if (body.classList == "dark") {
+            search_buttons[index].src = "./assets/img/icon-search-modo-noct.svg";
+        } else {
+            search_buttons[index].src = "./assets/img/icon-search.svg";
+        }
+        index = index + 1;
+    }
+}
 
 // Objeto que contiene las funciones de la navbar
 const events = {
-    favorites: () => {
+    favoritesActive: () => {
         if (active() != null) {
-            ocultarContainer(active, containerFavoritos);
+            ocultarContainer(containerFavoritos);
             active().classList.remove("active");
         } else {
             ocultarSearch(containerFavoritos);
@@ -47,15 +58,15 @@ const events = {
         let aFav = document.getElementById("a-favs");
         aFav.classList.add("active");
     },
-    search: () => {
+    searchActive: () => {
         if (active() != null) {
-            ocultarContainer(active, search);
+            ocultarContainer(search);
             active().classList.remove("active");
         }
     },
-    myGifs: () => {
+    myGifsActive: () => {
         if (active() != null) {
-            ocultarContainer(active, containerMyGifs);
+            ocultarContainer(containerMyGifs);
             active().classList.remove("active");
         } else {
             ocultarSearch(containerMyGifs);
@@ -92,5 +103,24 @@ const events = {
         btnLeft.addEventListener('mouseout', function() {
             sliderLeft.setAttribute('src', "./assets/img/button-slider-left-md-noct.svg");
         });
+    },
+    menuEvent: () => {
+        if (list.classList == "ul-active") {
+            list.style.transform = "translateY(-900px)";
+            list.style.transition = "transform 1.5s";
+            setTimeout(() => { list.classList.remove("ul-active"); }, 1500);
+            if (body.classList == "dark") {
+                menu.src = "./assets/img/burger-modo-noct.svg";
+            } else {
+                menu.src = "./assets/img/burger.svg";
+            }
+        } else {
+            list.classList.add("ul-active");
+            list.style.transform = "translateY(0px)";
+            list.style.transition = "transform 1.5s";
+            if (body.classList == "dark") {
+                menu.src = "./assets/img/close-modo-noct.svg";
+            } else { menu.src = "./assets/img/close.svg"; }
+        }
     }
 };
