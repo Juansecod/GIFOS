@@ -1017,7 +1017,7 @@ footer .fab:hover {
 }
 
 /*Diseño responsive*/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 950px) {
   /*Estilos del header Diseño mobile*/
   ul,
   li {
@@ -1211,7 +1211,7 @@ footer .fab:hover {
   }
 }
 
-@media screen and (max-width: 768px) and (max-width: 698px) {
+@media screen and (max-width: 950px) and (max-width: 698px) {
   /* Estilos del footer Mobile*/
   footer {
     height: 196px;

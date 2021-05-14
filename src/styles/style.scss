@@ -37,7 +37,7 @@
 
 /*Diseño responsive*/
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 950px) {
     @import './partials/mobile/header-mobile';
     @import './partials/mobile/search-mobile';
     @import './partials/mobile/favorites-mygifs-mobile';
