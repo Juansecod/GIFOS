@@ -83,20 +83,3 @@ function createTextCard(user, title) {
     text.appendChild(h2Title);
     return text;
 }
-
-/* function addFavorites(gif) {
-    if (localStorage.getItem('favorites') == null) {
-        localStorage.setItem('favorites', [gif]);
-        console.log(localStorage.getItem('favorites'));
-    } else {
-        let localStorageFavs = localStorage.getItem('favorites');
-        console.log(localStorageFavs);
-    }
-}
-let gifTest = {
-    id: 1,
-    title: "Test",
-    username: "Test",
-    urlImg: "test.jpg"
-};
-addFavorites(gifTest); */

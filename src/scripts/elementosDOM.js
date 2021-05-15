@@ -1,5 +1,6 @@
 /* Recoleccion de los elementos del DOM */
 const btn_dark_mode = document.getElementById('dark-mode');
+const header = document.getElementsByTagName('header');
 const body = document.getElementById('body');
 const logo = document.getElementById('logo');
 const menu = document.getElementById('menu');
@@ -7,14 +8,19 @@ const list = document.getElementById('list');
 const favNav = document.getElementById("nav-fav");
 const containerFavoritos = document.getElementById("favorites");
 const myGifsNav = document.getElementById("nav-misGifs");
+const searchHeader = document.getElementById('search-header');
+const inputSearchHeader = document.getElementById("search-input-header");
+const autollenarBody = document.getElementById("autocomplete");
+const autollenarHeader = document.getElementById("autocomplete-header");
 const containerMyGifs = document.getElementById("my-gifs");
 const meta_theme_color = document.getElementById('theme-color');
 const btn_search = document.getElementById('btn-search');
-const search = document.getElementById('search');
+const sectionSearch = document.getElementById('search');
 const input_search = document.getElementById('search-input');
 const sliderLeft = document.getElementById('slider-left');
 const sliderRight = document.getElementById('slider-right');
 const search_buttons = document.getElementsByClassName('btn-search');
+const close_buttons = document.getElementsByClassName('btn-close');
 const cardsTrending = document.getElementsByClassName('card-trending');
 const gifsTrending = document.getElementById('gifsTrending');
 const btnRight = document.getElementById("btn-right");

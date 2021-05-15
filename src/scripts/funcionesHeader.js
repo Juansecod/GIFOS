@@ -1,7 +1,7 @@
 let ocultarSearch = (container) => {
-    search.style.opacity = 0;
+    sectionSearch.style.opacity = 0;
     setTimeout(() => {
-        search.style.display = "none";
+        sectionSearch.style.display = "none";
         container.style.display = "flex";
     }, 1000);
     setTimeout(() => {
@@ -39,15 +39,17 @@ function srcBtnInputSearch() {
     while (index < search_buttons.length) {
         if (body.classList == "dark") {
             search_buttons[index].src = "./assets/img/icon-search-modo-noct.svg";
+            close_buttons[index].src = "./assets/img/close-modo-noct.svg";
         } else {
             search_buttons[index].src = "./assets/img/icon-search.svg";
+            close_buttons[index].src = "./assets/img/close.svg";
         }
         index = index + 1;
     }
 }
 
 // Objeto que contiene las funciones de la navbar
-const events = {
+const eventsHeader = {
     favoritesActive: () => {
         if (active() != null) {
             ocultarContainer(containerFavoritos);

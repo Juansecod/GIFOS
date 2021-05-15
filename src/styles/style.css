@@ -228,8 +228,6 @@ header {
   transition: -webkit-box-shadow 1s;
   transition: box-shadow 1s;
   transition: box-shadow 1s, -webkit-box-shadow 1s;
-  -webkit-box-shadow: 0 2px 4px 1px rgba(156, 175, 195, 0.55);
-          box-shadow: 0 2px 4px 1px rgba(156, 175, 195, 0.55);
 }
 
 nav {
@@ -336,11 +334,10 @@ nav ul .active {
 
 /* Barra de busqueda Header */
 .container-input-header {
-  width: calc(40% - 19%);
-  -webkit-transition-property: opacity width;
-  transition-property: opacity width;
-  -webkit-transition-duration: 1s 1s;
-          transition-duration: 1s 1s;
+  opacity: 0;
+  width: 0px;
+  -webkit-transition: width 1s, opacity 1s;
+  transition: width 1s, opacity 1s;
   height: auto;
   border: 1px solid #572EE5;
   border-radius: 27px;
@@ -367,12 +364,14 @@ nav ul .active {
   margin: 0 5px 0 0;
   font-size: 16px;
   border: none;
+  cursor: default;
 }
 
 .container-input-header .btn-search {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
+  cursor: default;
 }
 
 .container-input-header .btn-close {

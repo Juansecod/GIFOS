@@ -1,6 +1,6 @@
 let myStorage = window.localStorage;
 if (body.classList != "dark") {
-    events.btnTrending();
+    eventsHeader.btnTrending();
 }
 /* Aplica ultimo tema usado */
 if (myStorage.modo == undefined) {
@@ -11,14 +11,14 @@ if (myStorage.modo == undefined) {
         btn_dark_mode.textContent = "MODO DIURNO";
         logo.src = "./assets/img/Logo-modo-noc.svg";
         menu.src = "./assets/img/burger-modo-noct.svg";
-        srcBtnInputSearch();
+
         meta_theme_color.content = "#37383C";
         sliderLeft.src = "./assets/img/button-slider-left-md-noct.svg";
         sliderRight.src = "./assets/img/button-slider-right-md-noct.svg";
-        events.btnTrendingNoct();
+        eventsHeader.btnTrendingNoct();
     }
 }
-
+srcBtnInputSearch();
 /* Evento click cambiar modo de vista */
 btn_dark_mode.addEventListener('click', function tema() {
     if (body.classList == "dark") {
@@ -34,7 +34,7 @@ btn_dark_mode.addEventListener('click', function tema() {
         }
         sliderLeft.src = "./assets/img/button-slider-left.svg";
         sliderRight.src = "./assets/img/Button-Slider-right.svg";
-        events.btnTrending();
+        eventsHeader.btnTrending();
         localStorage.setItem('modo', 0);
     } else {
         body.classList.add("dark");
@@ -49,43 +49,63 @@ btn_dark_mode.addEventListener('click', function tema() {
         }
         sliderLeft.src = "./assets/img/button-slider-left-md-noct.svg";
         sliderRight.src = "./assets/img/button-slider-right-md-noct.svg";
-        events.btnTrendingNoct();
+        eventsHeader.btnTrendingNoct();
         localStorage.setItem('modo', 1);
     }
 });
 
 /* Evento click menu hambruguesa */
-menu.addEventListener('click', events.menuEvent);
+menu.addEventListener('click', eventsHeader.menuEvent);
 
 // Eventos SPA
 favNav.addEventListener('click', () => {
     if (screen.width < 768) {
-        events.menuEvent();
+        eventsHeader.menuEvent();
         search.style.transition = "none";
         containerMyGifs.style.transition = "none";
         containerFavoritos.style.transition = "opacity 1s";
     }
-    events.favoritesActive();
+    eventsHeader.favoritesActive();
 });
 
 myGifsNav.addEventListener('click', () => {
     if (screen.width < 768) {
-        events.menuEvent();
+        eventsHeader.menuEvent();
         search.style.transition = "none";
         containerFavoritos.style.transition = "none";
         containerMyGifs.style.transition = "opacity 1s";
     }
-    events.myGifsActive();
+    eventsHeader.myGifsActive();
 });
 
 logo.addEventListener('click', () => {
     if (screen.width < 768) {
         if (list.classList == "ul-active") {
-            events.menuEvent();
+            eventsHeader.menuEvent();
             search.style.transition = "none";
             containerFavoritos.style.transition = "none";
             containerMyGifs.style.transition = "opacity 1s";
         }
     }
-    events.searchActive();
+    eventsHeader.searchActive();
 });
+
+/* Animacion al hacer scroll en vistas Desktop */
+if (window.screen.width > 950) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 90) {
+            header[0].style.boxShadow = "0 2px 4px 1px rgba(156, 175, 195, 0.55)";
+            searchHeader.style.display = "flex";
+            searchHeader.style.opacity = 1;
+            searchHeader.style.width = "calc(40% - 19%)";
+            inputSearchHeader.style.cursor = "text";
+            search_buttons[0].style.cursor = "pointer";
+        } else {
+            header[0].style.boxShadow = "0 0 0 0";
+            searchHeader.style.width = "0";
+            searchHeader.style.opacity = "0";
+            inputSearchHeader.style.cursor = "default";
+            search_buttons[0].style.cursor = "default";
+        }
+    });
+}

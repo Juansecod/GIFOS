@@ -6,7 +6,6 @@ header {
     background-color: rgba($primary-color-dark, 50%);
     z-index: 1000;
     transition: box-shadow $duration-animation;
-    box-shadow: 0 2px 4px 1px rgba(156, 175, 195, 0.55);
 }
 
 nav {
@@ -93,9 +92,9 @@ nav {
 /* Barra de busqueda Header */
 
 .container-input-header {
-    width: calc(40% - 19%);
-    transition-property: opacity width;
-    transition-duration: $duration-animation $duration-animation;
+    opacity: 0;
+    width: 0px;
+    transition: width $duration-animation, opacity $duration-animation;
     height: auto;
     border: 1px solid $primary-color;
     border-radius: 27px;
@@ -113,9 +112,11 @@ nav {
         margin: 0 5px 0 0;
         font-size: 16px;
         border: none;
+        cursor: default;
     }
     .btn-search {
         order: 2;
+        cursor: default;
     }
     .btn-close {
         display: none;

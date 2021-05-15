@@ -16,6 +16,7 @@ resultGifs.then(gifs => {
             username: gifs.data[index].username,
             urlImg: gifs.data[index].images.fixed_height.url
         };
+        /* console.log(gif); */
         gifsTrending.appendChild(createCardTrending(gif));
     }
     gifsTrending.classList.remove("spinner");
