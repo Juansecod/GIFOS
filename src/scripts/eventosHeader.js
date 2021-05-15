@@ -108,4 +108,12 @@ if (window.screen.width > 950) {
             search_buttons[0].style.cursor = "default";
         }
     });
+} else {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 90) {
+            header[0].style.boxShadow = "0 2px 4px 1px rgba(156, 175, 195, 0.55)";
+        } else {
+            header[0].style.boxShadow = "0 0 0 0";
+        }
+    });
 }
