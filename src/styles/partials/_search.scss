@@ -85,7 +85,6 @@
         overflow-y: hidden;
         height: 0px;
         transition: height $duration-animation;
-        /* animation: heightAnimation $duration-animation reverse; */
         div {
             display: none;
         }
@@ -178,6 +177,9 @@ div.active {
         p,
         a {
             color: $primary-color-dark
+        }
+        h2 span {
+            text-shadow: 0px 0px 15px;
         }
         .container-input {
             border-color: $primary-color-dark;

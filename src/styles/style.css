@@ -576,7 +576,6 @@ nav ul .active {
   height: 0px;
   -webkit-transition: height 1s;
   transition: height 1s;
-  /* animation: heightAnimation $duration-animation reverse; */
 }
 
 .container-input .autocomplete div {
@@ -715,6 +714,10 @@ div.active div:last-child {
 .dark .search p,
 .dark .search a {
   color: #ffffff;
+}
+
+.dark .search h2 span {
+  text-shadow: 0px 0px 15px;
 }
 
 .dark .search .container-input {
