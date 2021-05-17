@@ -62,7 +62,7 @@ const eventsHeader = {
     },
     searchActive: () => {
         if (active() != null) {
-            ocultarContainer(search);
+            ocultarContainer(sectionSearch);
             active().classList.remove("active");
         }
     },

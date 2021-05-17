@@ -61,7 +61,7 @@ menu.addEventListener('click', eventsHeader.menuEvent);
 favNav.addEventListener('click', () => {
     if (screen.width < 768) {
         eventsHeader.menuEvent();
-        search.style.transition = "none";
+        sectionSearch.style.transition = "none";
         containerMyGifs.style.transition = "none";
         containerFavoritos.style.transition = "opacity 1s";
     }
@@ -71,7 +71,7 @@ favNav.addEventListener('click', () => {
 myGifsNav.addEventListener('click', () => {
     if (screen.width < 768) {
         eventsHeader.menuEvent();
-        search.style.transition = "none";
+        sectionSearch.style.transition = "none";
         containerFavoritos.style.transition = "none";
         containerMyGifs.style.transition = "opacity 1s";
     }
@@ -82,10 +82,10 @@ logo.addEventListener('click', () => {
     if (screen.width < 768) {
         if (list.classList == "ul-active") {
             eventsHeader.menuEvent();
-            search.style.transition = "none";
-            containerFavoritos.style.transition = "none";
-            containerMyGifs.style.transition = "opacity 1s";
         }
+        containerFavoritos.style.transition = "none";
+        containerMyGifs.style.transition = "none";
+        sectionSearch.style.transition = "opacity 1s";
     }
     eventsHeader.searchActive();
 });

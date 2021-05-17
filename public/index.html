@@ -49,10 +49,10 @@
     <!--Maquetado del cuerpo-->
     <main>
         <!-- SEARCH  -->
-        <section id="search" class="search">
+        <section id="section-search" class="search">
             <h2>Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h2>
             <img src="./assets/img/ilustra_header.svg" alt="Personas">
-            <div class="container-input ">
+            <div class="container-input " id="search-body">
                 <input type="text" id="search-input" class="input-search" placeholder="Busca GIFOS y más" autocomplete="off">
                 <input type="image" alt='boton buscar' id="btn-search" class="btn-search" src="./assets/img/icon-search.svg">
                 <input type="image" src="./assets/img/close-modo-noct.svg" alt="cerrar" id="btn-close" class="btn-close">
@@ -110,9 +110,9 @@
     <footer>
         <div class="footer-left">
             <p>Compartir en:</p>
-            <a href="http://www.facebook.com" target="_blank"><em class="fab fa-facebook-f"></em></a>
-            <a href="http://www.twitter.com" target="_blank"><em class="fab fa-twitter"></em></a>
-            <a href="http://www.instagram.com" target="_blank"><em class="fab fa-instagram"></em></a>
+            <a href="http://www.facebook.com" target="_blank" rel="noopener"><em class="fab fa-facebook-f"></em></a>
+            <a href="http://www.twitter.com" target="_blank" rel="noopener"><em class="fab fa-twitter"></em></a>
+            <a href="http://www.instagram.com" target="_blank" rel="noopener"><em class="fab fa-instagram"></em></a>
         </div>
         <div class="footer-right">
             <p>© GIFOS 2020 All Rights Reserved.</p>
@@ -121,6 +121,7 @@
     </footer>
     <div class="line"></div>
     <script src="../src/scripts/elementosDOM.js"></script>
+    <script src="../src/scripts/serviciosGiphy.js"></script>
     <script src="../src/scripts/funcionesHeader.js"></script>
     <script src="../src/scripts/funcionesSearch.js"></script>
     <script src="../src/scripts/modelosCardGifs.js"></script>

@@ -1,13 +1,8 @@
 // Se generan los Gifs desde la API en el DOM 
 gifsTrending.classList.add("spinner");
-let cant_max_gifs = 12;
-async function getTrendingGifs() {
-    let data = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${api_key}&limit=${cant_max_gifs}`);
-    let gifs = await data.json();
-    return gifs;
-}
 
-let resultGifs = getTrendingGifs();
+let resultGifs = servicesGiphy.getTrendingGifs(12);
+
 resultGifs.then(gifs => {
     for (let index = 0; index < gifs.data.length; index++) {
         let gif = {
