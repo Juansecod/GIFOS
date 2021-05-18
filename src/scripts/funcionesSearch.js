@@ -2,7 +2,6 @@ let sizeHeight = (container, cont) => {
     switch (cont) {
         case 1:
             container.style.height = "47px";
-
             break;
         case 2:
             container.style.height = "76px";
@@ -16,9 +15,12 @@ let sizeHeight = (container, cont) => {
         case 5:
             container.style.height = "163px";
             break;
+        default:
+            container.style.height = "0px";
+            break;
     }
 };
-
+/* var arrayTerms = []; */
 const eventsSearch = {
     appendContentAutocomplete: (container, text, cont = 5) => {
         sizeHeight(container, cont);
@@ -30,14 +32,35 @@ const eventsSearch = {
         div.appendChild(icono);
         div.appendChild(textContent);
         container.appendChild(div);
+        /* arrayTerms.push(text); */
     },
     addClassActive: (container) => container.classList.add("active-input"),
     removeClassActive: (container) => container.classList.remove("active-input"),
     insertContentAutocomplete: (container, value) => {
         let autollenarContent = servicesGiphy.getAutocompleteSearch(value);
         autollenarContent.then(response => {
-            response.data.forEach(info => eventsSearch.appendContentAutocomplete(container, info.name, response.data.length));
+            if (response.data.length != 0) {
+                response.data.forEach(info => eventsSearch.appendContentAutocomplete(container, info.name, response.data.length));
+            } else { container.style.height = "0px"; }
         });
+    },
+    keyupFunctionEvent: (container, value) => {
+        while (container.childNodes.length != 0) {
+            const content = container.childNodes;
+            content.forEach(data => data.remove());
+        }
+        if (value == "") {
+            let defaultContent = servicesGiphy.getTrendingTerms();
+            defaultContent.then(response => {
+                let i = 1;
+                for (i; i < 6; i++) {
+                    let text = response.data[i];
+                    eventsSearch.appendContentAutocomplete(container, text);
+                }
+            });
+        } else {
+            eventsSearch.insertContentAutocomplete(container, value);
+        }
     }
 };
 
@@ -67,6 +90,17 @@ input_search.addEventListener("blur", () => {
     eventsSearch.removeClassActive(containerInput);
 });
 
+input_search.addEventListener("keyup", (e) => {
+    if (window.screen.width > 950) {
+        if (e.key.length == 1 || e.key == "Backspace") {
+            eventsSearch.keyupFunctionEvent(autollenarBody, input_search.value);
+        }
+    } else {
+        eventsSearch.keyupFunctionEvent(autollenarBody, input_search.value);
+        console.log(arrayTerms);
+    }
+});
+
 /* Search Header */
 inputSearchHeader.addEventListener("focus", () => {
     if (inputSearchHeader.value == "") {
@@ -92,4 +126,10 @@ inputSearchHeader.addEventListener("blur", () => {
     }
     autollenarHeader.style.height = "0px";
     eventsSearch.removeClassActive(searchHeader);
+});
+
+inputSearchHeader.addEventListener("keyup", async(e) => {
+    if (e.key.length == 1 || e.key == "Backspace") {
+        eventsSearch.keyupFunctionEvent(autollenarHeader, inputSearchHeader.value);
+    }
 });
