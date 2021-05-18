@@ -61,10 +61,19 @@ const eventsSearch = {
         } else {
             eventsSearch.insertContentAutocomplete(container, value);
         }
-    }
+    },
+    /*  resetInputValue: () => input_search.value = "" */
 };
 
+function resetInputsValue() {
+    input_search.value = "";
+    inputSearchHeader.value = "";
+}
 /* Search Body */
+
+btnCloseBody.addEventListener("click", () => resetInputsValue());
+btn_search.addEventListener("click", () => console.log(input_search.value));
+
 input_search.addEventListener("focus", () => {
     if (input_search.value == "") {
         let defaultContent = servicesGiphy.getTrendingTerms();
@@ -79,6 +88,7 @@ input_search.addEventListener("focus", () => {
         eventsSearch.insertContentAutocomplete(autollenarBody, input_search.value);
     }
     eventsSearch.addClassActive(containerInput);
+    btn_search.click();
 });
 
 input_search.addEventListener("blur", () => {
@@ -90,18 +100,28 @@ input_search.addEventListener("blur", () => {
     eventsSearch.removeClassActive(containerInput);
 });
 
+
+
 input_search.addEventListener("keyup", (e) => {
     if (window.screen.width > 950) {
         if (e.key.length == 1 || e.key == "Backspace") {
             eventsSearch.keyupFunctionEvent(autollenarBody, input_search.value);
+        } else if (e.key == "Escape") {
+            btnCloseBody.click();
+            input_search.blur();
+        } else if (e.key == "Enter") {
+            btn_search.click();
+            input_search.blur();
         }
     } else {
         eventsSearch.keyupFunctionEvent(autollenarBody, input_search.value);
-        console.log(arrayTerms);
     }
 });
 
 /* Search Header */
+btnCloseHeader.addEventListener("click", () => resetInputsValue());
+btnSearchHeader.addEventListener("click", () => console.log(inputSearchHeader.value));
+
 inputSearchHeader.addEventListener("focus", () => {
     if (inputSearchHeader.value == "") {
         let defaultContent = servicesGiphy.getTrendingTerms();
@@ -131,5 +151,12 @@ inputSearchHeader.addEventListener("blur", () => {
 inputSearchHeader.addEventListener("keyup", async(e) => {
     if (e.key.length == 1 || e.key == "Backspace") {
         eventsSearch.keyupFunctionEvent(autollenarHeader, inputSearchHeader.value);
+
+    } else if (e.key == "Escape") {
+        btnCloseHeader.click();
+        inputSearchHeader.blur();
+    } else if (e.key == "Enter") {
+        btnSearchHeader.click();
+        inputSearchHeader.blur();
     }
 });

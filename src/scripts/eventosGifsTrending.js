@@ -21,31 +21,61 @@ resultGifs.then(gifs => {
 
 if (window.screen.width > 768) {
     let contadorPosiciones = 0;
-    btnRight.addEventListener('click', function() {
-        contadorPosiciones = contadorPosiciones + 1;
-        btnLeft.style.display = "inline-block";
-        setTimeout(function() { btnLeft.style.opacity = 1; }, 100);
-        if (contadorPosiciones == 3) {
-            btnRight.style.opacity = "0";
-            setTimeout(function() { btnRight.style.display = "none"; }, 1000);
-        }
-        Array.prototype.forEach.call(cardsTrending, card => {
-            if (card.style.right == "") { card.style.right = "0px"; }
-            card.style.right = parseInt(card.style.right) + gifsTrending.offsetWidth + "px";
+    if (window.screen.width > 1440) {
+        btnRight.addEventListener('click', function() {
+            contadorPosiciones = contadorPosiciones + 1;
+            btnLeft.style.display = "inline-block";
+            setTimeout(function() { btnLeft.style.opacity = 1; }, 100);
+            if (contadorPosiciones == 3) {
+                btnRight.style.opacity = "0";
+                setTimeout(function() { btnRight.style.display = "none"; }, 1000);
+            }
+            Array.prototype.forEach.call(cardsTrending, card => {
+                if (card.style.right == "") { card.style.right = "0px"; }
+                card.style.right = parseInt(card.style.right) + gifsTrending.offsetWidth + "px";
+            });
         });
-    });
 
-    btnLeft.addEventListener('click', function() {
-        contadorPosiciones = contadorPosiciones - 1;
-        btnRight.style.display = "inline-block";
-        setTimeout(function() { btnRight.style.opacity = 1; }, 100);
-        if (contadorPosiciones == 0) {
-            btnLeft.style.opacity = "0";
-            setTimeout(function() { btnLeft.style.display = "none"; }, 1000);
-        }
-        Array.prototype.forEach.call(cardsTrending, card => {
-            if (card.style.right == "") { card.style.right = "0px"; }
-            card.style.right = parseInt(card.style.right) - gifsTrending.offsetWidth + "px";
+        btnLeft.addEventListener('click', function() {
+            contadorPosiciones = contadorPosiciones - 1;
+            btnRight.style.display = "inline-block";
+            setTimeout(function() { btnRight.style.opacity = 1; }, 100);
+            if (contadorPosiciones == 0) {
+                btnLeft.style.opacity = "0";
+                setTimeout(function() { btnLeft.style.display = "none"; }, 1000);
+            }
+            Array.prototype.forEach.call(cardsTrending, card => {
+                if (card.style.right == "") { card.style.right = "0px"; }
+                card.style.right = parseInt(card.style.right) - gifsTrending.offsetWidth + "px";
+            });
         });
-    });
+    } else {
+        btnRight.addEventListener('click', function() {
+            contadorPosiciones = contadorPosiciones + 1;
+            btnLeft.style.display = "inline-block";
+            setTimeout(function() { btnLeft.style.opacity = 1; }, 100);
+            if (contadorPosiciones == 9) {
+                btnRight.style.opacity = "0";
+                setTimeout(function() { btnRight.style.display = "none"; }, 1000);
+            }
+            Array.prototype.forEach.call(cardsTrending, card => {
+                if (card.style.right == "") { card.style.right = "0px"; }
+                card.style.right = parseInt(card.style.right) + card.offsetWidth + 15 + "px";
+            });
+        });
+
+        btnLeft.addEventListener('click', function() {
+            contadorPosiciones = contadorPosiciones - 1;
+            btnRight.style.display = "inline-block";
+            setTimeout(function() { btnRight.style.opacity = 1; }, 100);
+            if (contadorPosiciones == 0) {
+                btnLeft.style.opacity = "0";
+                setTimeout(function() { btnLeft.style.display = "none"; }, 1000);
+            }
+            Array.prototype.forEach.call(cardsTrending, card => {
+                if (card.style.right == "") { card.style.right = "0px"; }
+                card.style.right = parseInt(card.style.right) - card.offsetWidth - 15 + "px";
+            });
+        });
+    }
 }
