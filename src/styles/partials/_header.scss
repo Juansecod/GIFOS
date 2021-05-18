@@ -131,6 +131,12 @@ nav {
         font-weight: 200;
         div {
             display: none;
+            text {
+                cursor: pointer;
+            }
+            text:hover {
+                text-decoration: underline;
+            }
         }
     }
 }
