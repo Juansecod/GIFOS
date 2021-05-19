@@ -9,7 +9,10 @@ function createTrending(terms) {
         let a = document.createElement('a');
         let p = document.createElement('p');
         a.textContent = text[i];
-        a.addEventListener('click', () => input_search.value = a.textContent);
+        a.addEventListener('click', () => {
+            input_search.value = a.textContent;
+            btn_search.click();
+        });
         if (i == (cantTerms - 1)) { p.textContent = ". "; } else { p.textContent = ", "; }
         if (i == 0) { firstLetterUppercaseOfElement(a); }
         parrafo.appendChild(a);
