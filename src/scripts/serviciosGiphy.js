@@ -19,5 +19,10 @@ const servicesGiphy = {
         let data = await fetch(`https://api.giphy.com/v1/gifs/search/tags?api_key=${configDev.apiKey}&q=${text}`);
         let recomendation = await data.json();
         return recomendation;
+    },
+    getSearchResults: async(text, cantGifs = 30) => {
+        let data = await fetch(`${configDev.url}gifs/search?api_key=${configDev.apiKey}&q=${text}&limit=${cantGifs}`);
+        let result = await data.json();
+        return result;
     }
 };

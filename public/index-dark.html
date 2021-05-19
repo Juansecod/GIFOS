@@ -22,21 +22,15 @@
     <!--Maquetado del header-->
     <header>
         <div class="line"></div>
-        <nav class="">
-            <a href="./index.html"><img src="./assets/img/Logo-modo-noc.svg" alt="Logo" class="logo" id='logo'></a>
-            <img src="./assets/img/burger-modo-noct.svg" alt="Menu" id="menu" class="menu">
-            <div class="container-input-header active-input" id="search-header">
+        <nav>
+            <img src="./assets/img/logo-desktop.svg" alt="Logo" class="logo" id="logo">
+            <img src="./assets/img/burger.svg" alt="Menu" id="menu" class="menu">
+            <div class="container-input-header " id="search-header">
                 <input type="text" id="search-input-header" class="input-search" placeholder="Busca GIFOS y más" autocomplete="off">
                 <input type="image" alt='boton buscar' id="btn-search-header" src="./assets/img/icon-search.svg" class="btn-search">
                 <input type="image" src="./assets/img/close-modo-noct.svg" alt="cerrar" id="btn-close-header" class="btn-close">
                 <span></span>
-                <div class="autocomplete" id="autocomplete">
-                    <div><em class="fas fa-search"></em><text>Hola mundo</text></div>
-                    <div><em class="fas fa-search"></em><text>Hola mundo</text></div>
-                    <div><em class="fas fa-search"></em><text>Hola mundo</text></div>
-                    <div><em class="fas fa-search"></em><text>Hola mundo</text></div>
-                    <div><em class="fas fa-search"></em><text>Hola mundo</text></div>
-                </div>
+                <div class="autocomplete" id="autocomplete-header"></div>
             </div>
             <ul id='list'>
                 <li id="dark-mode">MODO NOCTURNO</li>
@@ -49,82 +43,88 @@
 
     <!--Maquetado del cuerpo-->
     <main>
-        <div class="section-search" id="search">
+        <!-- SEARCH  -->
+        <section id="section-search" class="search">
             <h2>Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h2>
             <img src="./assets/img/ilustra_header.svg" alt="Personas">
-            <div class="container-input active-input" id="search-body">
+            <div class="container-input " id="search-body">
                 <input type="text" id="search-input" class="input-search" placeholder="Busca GIFOS y más" autocomplete="off">
-                <input type="image" alt='boton buscar' id="btn-search" src="./assets/img/icon-search-modo-noct.svg">
+                <input type="image" alt='boton buscar' id="btn-search" class="btn-search" src="./assets/img/icon-search.svg">
                 <input type="image" src="./assets/img/close-modo-noct.svg" alt="cerrar" id="btn-close" class="btn-close">
                 <span></span>
-                <div class="autocomplete" id="autocomplete">
-                    <div><em class="fas fa-search"></em><text>Hola mundo</text></div>
-                    <div><em class="fas fa-search"></em><text>Hola mundo</text></div>
-                    <div><em class="fas fa-search"></em><text>Hola mundo</text></div>
-                    <div><em class="fas fa-search"></em><text>Hola mundo</text></div>
-                    <div><em class="fas fa-search"></em><text>Hola mundo</text></div>
-                </div>
+                <div class="autocomplete" id="autocomplete"></div>
+
             </div>
             <h3>Trending:</h3>
-            <p>Reactions, Entertainment, Sports, Stickers, Artists</p>
-        </div>
+        </section>
+        <section class="results results-active favorites" id="results" style="display: flex; opacity: 1; width: 100%; text-align: center">
+            <div class=" line " style="margin-bottom:83.9px; width: 23.47%; height: 0.1px; background-color: #9CAFC3;min-width: 200px;"></div>
+            <h2>lorem ipsum</h2>
+            <div class="container-gifs " id="container-results-search">
+                <img src="./assets/img/icon-busqueda-sin-resultado.svg " alt="Not Found! ">
+                <h3>Intenta con otra búsqueda.</h3>
+            </div>
+        </section>
         <!-- FAVORITES -->
-        <div class="favorites" id="favorites" style="display: flex;">
-            <img src="./assets/img/icon-favoritos.svg" alt="Corazon">
+        <section class="favorites " id="favorites ">
+            <img src="./assets/img/icon-favoritos.svg " alt="Corazon ">
             <h2>Favoritos</h2>
-            <div class="container-gifs" id="container-favorites">
-                <img src="./assets/img/icon-fav-sin-contenido.svg" alt="Favoritos">
+            <div class="container-gifs " id="container-favorites ">
+                <img src="./assets/img/icon-fav-sin-contenido.svg " alt="Favoritos ">
                 <h3>¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!</h3>
             </div>
-        </div>
+        </section>
 
         <!-- MY GIFS -->
-        <div class="my-gifs" id="my-gifs" style="display: flex;">
-            <img src="./assets/img/icon-mis-gifos.svg" alt="Crea Gifs">
+        <section class="my-gifs " id="my-gifs ">
+            <img src="./assets/img/icon-mis-gifos.svg " alt="Crea Gifs ">
             <h2>Mis GIFOS</h2>
-            <div class="container-gifs" id="container-my-gifs">
-                <img src="./assets/img/icon-mis-gifos-sin-contenido.svg" alt="Crea Gifs">
+            <div class="container-gifs " id="container-my-gifs ">
+                <img src="./assets/img/icon-mis-gifos-sin-contenido.svg " alt="Crea Gifs ">
                 <h3>¡Anímate a crear tu primer GIFO!</h3>
             </div>
-        </div>
+        </section>
 
         <!-- TRENDING -->
-        <section id="trending" class="trending">
+        <section id="trending " class="trending ">
             <h2>Trending GIFOS</h2>
             <p>Mira los últimos GIFO de nuestra comunidad.</p>
-            <div class="container-carrusel">
-                <button class="btn-left" id="btn-left">
-                <img src="./assets/img/button-slider-left.svg" alt="Izquierda" id='slider-left'>
-            </button>
-                <ul class="gifs" id='gifsTrending'>
+            <div class="container-carrusel ">
+                <button class="btn-left " id="btn-left ">
+                    <img src="./assets/img/button-slider-left.svg " alt="Izquierda " id='slider-left'>
+                </button>
+                <ul class="gifs " id='gifsTrending'>
                 </ul>
-                <button class="btn-right" id="btn-right">
-                <img src="./assets/img/Button-Slider-right.svg" alt="derecha" id='slider-right'>
-            </button>
+                <button class="btn-right " id="btn-right ">
+                    <img src="./assets/img/Button-Slider-right.svg " alt="derecha " id='slider-right'>
+                </button>
             </div>
         </section>
     </main>
 
     <!--Maquetado del Footer-->
     <footer>
-        <div class="footer-left">
+        <div class="footer-left ">
             <p>Compartir en:</p>
-            <a href="http://www.facebook.com" target="_blank" rel="noopener"><em class="fab fa-facebook-f"></em></a>
-            <a href="http://www.twitter.com" target="_blank" rel="noopener"><em class="fab fa-twitter"></em></a>
-            <a href="http://www.instagram.com" target="_blank" rel="noopener"><em class="fab fa-instagram"></em></a>
+            <a href="http://www.facebook.com " target="_blank " rel="noopener "><em class="fab fa-facebook-f "></em></a>
+            <a href="http://www.twitter.com " target="_blank " rel="noopener "><em class="fab fa-twitter "></em></a>
+            <a href="http://www.instagram.com " target="_blank " rel="noopener "><em class="fab fa-instagram "></em></a>
         </div>
-        <div class="footer-right">
+        <div class="footer-right ">
             <p>© GIFOS 2020 All Rights Reserved.</p>
         </div>
 
     </footer>
-    <div class="line"></div>
-    <script src="../src/scripts/elementosDOM.js"></script>
-    <script src="../src/scripts/funcionesHeader.js"></script>
-    <script src="../src/scripts/modelosCardGifs.js"></script>
-    <script src="../src/scripts/eventosHeader.js"></script>
-    <script src="../src/scripts/terminosTendencia.js"></script>
-    <script src="../src/scripts/eventosGifsTrending.js"></script>
+    <div class="line "></div>
+    <script src="../src/scripts/elementosDOM.js "></script>
+    <script src="../src/scripts/serviciosGiphy.js "></script>
+    <script src="../src/scripts/funcionesHeader.js "></script>
+    <script src="../src/scripts/funcionesSearch.js "></script>
+    <script src="../src/scripts/modelosCardGifs.js "></script>
+    <script src="../src/scripts/eventosHeader.js "></script>
+    <script src="../src/scripts/eventosSearch.js "></script>
+    <script src="../src/scripts/terminosTendencia.js "></script>
+    <script src="../src/scripts/eventosGifsTrending.js "></script>
 </body>
 
 </html>

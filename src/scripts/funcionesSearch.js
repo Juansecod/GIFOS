@@ -30,7 +30,7 @@ const eventsSearch = {
         textContent.addEventListener('click', () => {
             input_search.value = textContent.textContent;
             inputSearchHeader.value = textContent.textContent;
-            btn_search.click();
+            (container == autollenarBody) ? btn_search.click(): btnSearchHeader.click();
         });
         let div = document.createElement("div");
         div.appendChild(icono);
@@ -68,5 +68,15 @@ const eventsSearch = {
     resetInputValue: () => {
         input_search.value = "";
         inputSearchHeader.value = "";
+    },
+    resultSearch: (input) => {
+        if (input.value != "") {
+            let resultsSearch = servicesGiphy.getSearchResults(input.value);
+            resultsSearch
+                .then(resolve => console.log(resolve))
+                .catch(err => console.error(err));
+        } else {
+            console.log("null");
+        }
     }
 };

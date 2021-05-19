@@ -1,13 +1,11 @@
 /* Search Body */
-
 btnCloseBody.addEventListener("click", (e) => {
     e.preventDefault();
     eventsSearch.resetInputValue();
 });
 btn_search.addEventListener("click", () => {
-    if (input_search.value != "") {
-        console.log(input_search.value);
-    }
+    inputSearchHeader.value = input_search.value;
+    eventsSearch.resultSearch(input_search);
 });
 
 input_search.addEventListener("focus", () => {
@@ -65,11 +63,14 @@ if (screen.width > 950) {
 
 /* Search Header */
 btnCloseHeader.addEventListener("click", (e) => {
+    e.preventDefault();
     eventsSearch.resetInputValue();
 });
 
-btnSearchHeader.addEventListener("click", () => console.log(inputSearchHeader.value));
-btnCloseHeader.addEventListener("click", () => eventsSearch.resetInputValue());
+btnSearchHeader.addEventListener("click", () => {
+    input_search.value = inputSearchHeader.value;
+    eventsSearch.resultSearch(inputSearchHeader);
+});
 
 inputSearchHeader.addEventListener("focus", () => {
     if (inputSearchHeader.value == "") {
