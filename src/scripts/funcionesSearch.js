@@ -73,23 +73,24 @@ const eventsSearch = {
 
 /* Search Body */
 
-btnCloseBody.addEventListener("click", () => eventsSearch.resetInputValue());
+btnCloseBody.addEventListener("click", (e) => {
+    e.preventDefault();
+    eventsSearch.resetInputValue();
+});
 btn_search.addEventListener("click", () => console.log(input_search.value));
 
 input_search.addEventListener("focus", () => {
-    if (autollenarBody.childElementCount == 0) {
-        if (input_search.value == "") {
-            let defaultContent = servicesGiphy.getTrendingTerms();
-            defaultContent.then(response => {
-                let i = 1;
-                for (i; i < 6; i++) {
-                    let text = response.data[i + 5];
-                    eventsSearch.appendContentAutocomplete(autollenarBody, text);
-                }
-            });
-        } else {
-            eventsSearch.insertContentAutocomplete(autollenarBody, input_search.value);
-        }
+    if (input_search.value == "") {
+        let defaultContent = servicesGiphy.getTrendingTerms();
+        defaultContent.then(response => {
+            let i = 1;
+            for (i; i < 6; i++) {
+                let text = response.data[i + 5];
+                eventsSearch.appendContentAutocomplete(autollenarBody, text);
+            }
+        });
+    } else {
+        eventsSearch.insertContentAutocomplete(autollenarBody, input_search.value);
     }
     sizeHeight(autollenarBody, autollenarBody.childElementCount);
     eventsSearch.addClassActive(containerInput);
@@ -99,6 +100,10 @@ input_search.addEventListener("blur", () => {
     setTimeout(() => {
         autollenarBody.style.height = "0px";
         eventsSearch.removeClassActive(containerInput);
+        while (autollenarBody.childNodes.length != 0) {
+            const content = autollenarBody.childNodes;
+            content.forEach(data => data.remove());
+        }
     }, 100);
 });
 
@@ -125,20 +130,18 @@ btnSearchHeader.addEventListener("click", () => console.log(inputSearchHeader.va
 btnCloseHeader.addEventListener("click", () => eventsSearch.resetInputValue());
 
 inputSearchHeader.addEventListener("focus", () => {
-    if (autollenarHeader.childElementCount == 0) {
-        if (inputSearchHeader.value == "") {
-            let defaultContent = servicesGiphy.getTrendingTerms();
-            defaultContent
-                .then(response => {
-                    let i = 1;
-                    for (i; i < 6; i++) {
-                        let text = response.data[i + 5];
-                        eventsSearch.appendContentAutocomplete(autollenarHeader, text);
-                    }
-                });
-        } else {
-            eventsSearch.insertContentAutocomplete(autollenarHeader, inputSearchHeader.value);
-        }
+    if (inputSearchHeader.value == "") {
+        let defaultContent = servicesGiphy.getTrendingTerms();
+        defaultContent
+            .then(response => {
+                let i = 1;
+                for (i; i < 6; i++) {
+                    let text = response.data[i + 5];
+                    eventsSearch.appendContentAutocomplete(autollenarHeader, text);
+                }
+            });
+    } else {
+        eventsSearch.insertContentAutocomplete(autollenarHeader, inputSearchHeader.value);
     }
     sizeHeight(autollenarHeader, autollenarHeader.childElementCount);
     eventsSearch.addClassActive(searchHeader);
@@ -148,6 +151,10 @@ inputSearchHeader.addEventListener("blur", () => {
     setTimeout(() => {
         autollenarHeader.style.height = "0px";
         eventsSearch.removeClassActive(searchHeader);
+        while (autollenarHeader.childNodes.length != 0) {
+            const content = autollenarHeader.childNodes;
+            content.forEach(data => data.remove());
+        }
     }, 100);
 });
 
