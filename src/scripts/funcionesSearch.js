@@ -30,7 +30,11 @@ const eventsSearch = {
         textContent.addEventListener('click', () => {
             input_search.value = textContent.textContent;
             inputSearchHeader.value = textContent.textContent;
-            (container == autollenarBody) ? btn_search.click(): btnSearchHeader.click();
+            if (container == autollenarBody) {
+                btn_search.click();
+            } else {
+                btnSearchHeader.click();
+            }
         });
         let div = document.createElement("div");
         div.appendChild(icono);

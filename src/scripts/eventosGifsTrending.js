@@ -11,7 +11,6 @@ resultGifs.then(gifs => {
             username: gifs.data[index].username,
             urlImg: gifs.data[index].images.fixed_height.url
         };
-        /* console.log(gif); */
         gifsTrending.appendChild(createCardTrending(gif));
     }
     gifsTrending.classList.remove("spinner");
@@ -54,7 +53,7 @@ if (window.screen.width > 768) {
             contadorPosiciones = contadorPosiciones + 1;
             btnLeft.style.display = "inline-block";
             setTimeout(function() { btnLeft.style.opacity = 1; }, 100);
-            if (contadorPosiciones == 9) {
+            if (contadorPosiciones == 10) {
                 btnRight.style.opacity = "0";
                 setTimeout(function() { btnRight.style.display = "none"; }, 1000);
             }
