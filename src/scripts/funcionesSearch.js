@@ -20,7 +20,6 @@ let sizeHeight = (container, cont) => {
             break;
     }
 };
-/* var arrayTerms = []; */
 const eventsSearch = {
     appendContentAutocomplete: (container, text, cont = 5) => {
         sizeHeight(container, cont);
@@ -28,11 +27,15 @@ const eventsSearch = {
         icono.classList.add("fas", "fa-search");
         let textContent = document.createElement("text");
         textContent.textContent = text;
+        textContent.addEventListener('click', () => {
+            input_search.value = textContent.textContent;
+            inputSearchHeader.value = textContent.textContent;
+            btn_search.click();
+        });
         let div = document.createElement("div");
         div.appendChild(icono);
         div.appendChild(textContent);
         container.appendChild(div);
-        /* arrayTerms.push(text); */
     },
     addClassActive: (container) => container.classList.add("active-input"),
     removeClassActive: (container) => container.classList.remove("active-input"),
@@ -54,7 +57,7 @@ const eventsSearch = {
             defaultContent.then(response => {
                 let i = 1;
                 for (i; i < 6; i++) {
-                    let text = response.data[i];
+                    let text = response.data[i + 5];
                     eventsSearch.appendContentAutocomplete(container, text);
                 }
             });
@@ -62,96 +65,95 @@ const eventsSearch = {
             eventsSearch.insertContentAutocomplete(container, value);
         }
     },
-    /*  resetInputValue: () => input_search.value = "" */
+    resetInputValue: () => {
+        input_search.value = "";
+        inputSearchHeader.value = "";
+    }
 };
 
-function resetInputsValue() {
-    input_search.value = "";
-    inputSearchHeader.value = "";
-}
 /* Search Body */
 
-btnCloseBody.addEventListener("click", () => resetInputsValue());
+btnCloseBody.addEventListener("click", () => eventsSearch.resetInputValue());
 btn_search.addEventListener("click", () => console.log(input_search.value));
 
 input_search.addEventListener("focus", () => {
-    if (input_search.value == "") {
-        let defaultContent = servicesGiphy.getTrendingTerms();
-        defaultContent.then(response => {
-            let i = 1;
-            for (i; i < 6; i++) {
-                let text = response.data[i];
-                eventsSearch.appendContentAutocomplete(autollenarBody, text);
-            }
-        });
-    } else {
-        eventsSearch.insertContentAutocomplete(autollenarBody, input_search.value);
+    if (autollenarBody.childElementCount == 0) {
+        if (input_search.value == "") {
+            let defaultContent = servicesGiphy.getTrendingTerms();
+            defaultContent.then(response => {
+                let i = 1;
+                for (i; i < 6; i++) {
+                    let text = response.data[i + 5];
+                    eventsSearch.appendContentAutocomplete(autollenarBody, text);
+                }
+            });
+        } else {
+            eventsSearch.insertContentAutocomplete(autollenarBody, input_search.value);
+        }
     }
+    sizeHeight(autollenarBody, autollenarBody.childElementCount);
     eventsSearch.addClassActive(containerInput);
-    btn_search.click();
 });
 
 input_search.addEventListener("blur", () => {
-    while (autollenarBody.childNodes.length != 0) {
-        const content = autollenarBody.childNodes;
-        content.forEach(data => data.remove());
-    }
-    autollenarBody.style.height = "0px";
-    eventsSearch.removeClassActive(containerInput);
+    setTimeout(() => {
+        autollenarBody.style.height = "0px";
+        eventsSearch.removeClassActive(containerInput);
+    }, 100);
 });
 
-
-
 input_search.addEventListener("keyup", (e) => {
-    if (window.screen.width > 950) {
-        if (e.key.length == 1 || e.key == "Backspace") {
-            eventsSearch.keyupFunctionEvent(autollenarBody, input_search.value);
-        } else if (e.key == "Escape") {
-            btnCloseBody.click();
-            input_search.blur();
-        } else if (e.key == "Enter") {
-            btn_search.click();
-            input_search.blur();
-        }
-    } else {
+
+    if (e.key.length == 1 || e.key == "Backspace") {
         eventsSearch.keyupFunctionEvent(autollenarBody, input_search.value);
+    } else if (e.key == "Escape") {
+        btnCloseBody.click();
+        input_search.blur();
+    } else if (e.key == "Enter") {
+        btn_search.click();
+        input_search.blur();
     }
+
 });
 
 /* Search Header */
-btnCloseHeader.addEventListener("click", () => resetInputsValue());
+btnCloseHeader.addEventListener("click", (e) => {
+    eventsSearch.resetInputValue();
+});
+
 btnSearchHeader.addEventListener("click", () => console.log(inputSearchHeader.value));
+btnCloseHeader.addEventListener("click", () => eventsSearch.resetInputValue());
 
 inputSearchHeader.addEventListener("focus", () => {
-    if (inputSearchHeader.value == "") {
-        let defaultContent = servicesGiphy.getTrendingTerms();
-        defaultContent
-            .then(response => {
-                let i = 1;
-                for (i; i < 6; i++) {
-                    let text = response.data[i];
-                    eventsSearch.appendContentAutocomplete(autollenarHeader, text);
-                }
-            });
-    } else {
-        eventsSearch.insertContentAutocomplete(autollenarHeader, inputSearchHeader.value);
+    if (autollenarHeader.childElementCount == 0) {
+        if (inputSearchHeader.value == "") {
+            let defaultContent = servicesGiphy.getTrendingTerms();
+            defaultContent
+                .then(response => {
+                    let i = 1;
+                    for (i; i < 6; i++) {
+                        let text = response.data[i + 5];
+                        eventsSearch.appendContentAutocomplete(autollenarHeader, text);
+                    }
+                });
+        } else {
+            eventsSearch.insertContentAutocomplete(autollenarHeader, inputSearchHeader.value);
+        }
     }
+    sizeHeight(autollenarHeader, autollenarHeader.childElementCount);
     eventsSearch.addClassActive(searchHeader);
 });
 
 inputSearchHeader.addEventListener("blur", () => {
-    while (autollenarHeader.childNodes.length != 0) {
-        const content = autollenarHeader.childNodes;
-        content.forEach(data => data.remove());
-    }
-    autollenarHeader.style.height = "0px";
-    eventsSearch.removeClassActive(searchHeader);
+    setTimeout(() => {
+        autollenarHeader.style.height = "0px";
+        eventsSearch.removeClassActive(searchHeader);
+    }, 100);
 });
 
 inputSearchHeader.addEventListener("keyup", async(e) => {
     if (e.key.length == 1 || e.key == "Backspace") {
         eventsSearch.keyupFunctionEvent(autollenarHeader, inputSearchHeader.value);
-
     } else if (e.key == "Escape") {
         btnCloseHeader.click();
         inputSearchHeader.blur();
