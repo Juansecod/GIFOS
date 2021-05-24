@@ -1,7 +1,9 @@
 let ocultarSearch = (container) => {
     sectionSearch.style.opacity = 0;
+    sectionResults.style.opacity = 0;
     setTimeout(() => {
         sectionSearch.style.display = "none";
+        sectionResults.style.display = "none";
         container.style.display = "flex";
     }, 1000);
     setTimeout(() => {
@@ -65,6 +67,14 @@ const eventsHeader = {
         if (active() != null) {
             ocultarContainer(sectionSearch);
             active().classList.remove("active");
+            if (inputSearchHeader.value != "") {
+                setTimeout(() => {
+                    sectionResults.style.display = "";
+                }, 1000);
+                setTimeout(() => {
+                    sectionResults.style.opacity = 1;
+                }, 1250);
+            }
         }
         titleNavegador.textContent = "Gifos";
     },

@@ -6,10 +6,12 @@ btnCloseBody.addEventListener("click", (e) => {
     cont = 0;
 });
 btn_search.addEventListener("click", () => {
+    eventsHeader.searchActive();
     cont = 0;
     inputSearchHeader.value = input_search.value;
     containerResultsSearch.innerHTML = "";
     sectionResults.style.display = "";
+    sectionResults.style.opacity = 1;
     eventsSearch.resultSearch(input_search);
     sectionResults.classList.add("results-active");
 });
