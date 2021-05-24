@@ -3,6 +3,15 @@ if (body.classList != "dark") {
     eventsHeader.btnTrending();
 }
 if (myStorage.GifsFavs == undefined) { localStorage.setItem('GifsFavs', `[]`); }
+
+let gifsFavs = localStorage.getItem("GifsFavs");
+gifsFavs = JSON.parse(gifsFavs);
+if (gifsFavs.length != 0) {
+    containerGifsFav.innerHTML = "";
+    containerGifsFav.classList.add("view-gifs");
+    gifsFavs.forEach((gif) => eventsIcons.createDOMFavorites(gif));
+}
+
 /* Aplica ultimo tema usado */
 if (myStorage.modo == undefined) {
     localStorage.setItem('modo', 0);

@@ -55,7 +55,7 @@ function hoverDesktopCard(card, url, icons, text, img) {
         } else {
             img.style.backgroundImage = `linear-gradient(rgba(87, 46, 229, 0.7), rgba(87, 46, 229, 0.7)), url(${url})`;
         }
-    })
+    });
 }
 
 function createIcons(gif) {
@@ -105,16 +105,31 @@ const eventsIcons = {
     addFavGifos: (obj) => {
         let gifsFavs = localStorage.getItem("GifsFavs");
         gifsFavs = JSON.parse(gifsFavs);
+        if (gifsFavs.length == 0) {
+            containerGifsFav.innerHTML = "";
+            containerGifsFav.classList.add("view-gifs");
+        }
         let results = gifsFavs.filter(function(gifJson) { return gifJson.id == obj.id; });
         if (results.length == 0) {
             gifsFavs.push(obj);
             localStorage.setItem('GifsFavs', JSON.stringify(gifsFavs));
+            eventsIcons.createDOMFavorites(obj);
         }
+
     },
     removeFavs: (obj) => {
         let data = JSON.parse(localStorage.getItem('GifsFavs'));
         data.forEach((gifJson, index, data) => gifJson.id === obj.id ? data.splice(index, 1) : null);
         localStorage.setItem('GifsFavs', JSON.stringify(data));
+        if (data.length == 0) {
+            containerGifsFav.innerHTML = `<img src="./assets/img/icon-fav-sin-contenido.svg" alt="
+            Favoritos"> 
+            <h3> ¡Guarda tu primer GIFO en Favoritos para que se muestre aquí! </h3>`;
+            containerGifsFav.classList.remove("view-gifs");
+        } else {
+            let div = document.getElementById(obj.id + "-fav");
+            containerGifsFav.removeChild(div);
+        }
     },
     eventsFavsAdd: (em, gif, li) => {
         em.className = "far fa-heart";
@@ -160,6 +175,11 @@ const eventsIcons = {
         document.body.appendChild(saveImg);
         saveImg.click();
         document.body.removeChild(saveImg);
+    },
+    createDOMFavorites: (obj) => {
+        let div = createCardResults(obj);
+        div.id = obj.id + "-fav";
+        containerGifsFav.appendChild(div);
     }
 
 };
