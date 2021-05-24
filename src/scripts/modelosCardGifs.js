@@ -24,7 +24,6 @@ function createCardTrending(gif) {
 function createCardResults(gif) {
     let icons = createIcons(gif);
 
-
     icons.style.float = "right";
     icons.style.listStyle = "none";
     icons.style.display = "flex";
@@ -36,12 +35,9 @@ function createCardResults(gif) {
     icons.style.top = "-10%";
     icons.style.display = "none";
 
-
     let text = createTextCard(gif.username, gif.title);
     text.style.display = 'none';
 
-
-    /* let urlImg = gif.images.fixed_height.url; */
     let urlImg = gif.urlImg;
     let img = document.createElement('div');
     img.style.backgroundImage = `url(${urlImg})`;
@@ -108,12 +104,12 @@ function createIcons(gif) {
                     }
                 });
                 break;
-                /* Boton Fullscreen */
+                /* Boton Download */
             case 1:
                 em.className = "fas fa-download";
                 li.addEventListener("click", () => eventsIcons.downloadGifos(gif));
                 break;
-                /* Boton Download */
+                /* Boton Fullscreen */
             case 2:
                 em.className = "fas fa-expand-alt";
                 break;

@@ -172,12 +172,139 @@ a {
       flex-wrap: wrap;
 }
 
+.container-gifs.view-gifs {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 90%;
+  height: auto;
+  gap: 15px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 38px;
+  max-height: none;
+  max-width: none;
+}
+
+.container-gifs.view-gifs div {
+  width: 24.5vw;
+  min-width: 243px;
+  max-width: 357px;
+  height: calc(24.5vw - 100px);
+  min-height: 187px;
+  max-height: 275px;
+  padding: 3% 1%;
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  background-size: 100% 100%;
+}
+
 .container-gifs h3 {
   margin-top: 23.7px;
   color: #50E3C2;
   font-size: 22px;
   max-width: 431px;
   text-align: center;
+}
+
+.icons {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.icons li em {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  color: rgba(87, 46, 229, 0.7);
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 6px;
+}
+
+.dark .icons li em {
+  color: rgba(34, 35, 38, 0.7);
+}
+
+.icons li em:hover {
+  color: #572ee5;
+  background-color: white;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.dark .icons li em:hover {
+  color: #222326;
+}
+
+.text {
+  width: 100%;
+  height: 70px;
+  max-height: 70px;
+  padding-left: 5%;
+  text-align: left;
+}
+
+.text p,
+.text h2 {
+  color: #ffffff;
+  max-height: 100px;
+  margin: 0;
+}
+
+.btn-view-more {
+  display: none;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  border: 1px solid #572EE5;
+  width: 127px;
+  height: 50px;
+  border-radius: 25px;
+  color: #572EE5;
+  margin: 79px 0px;
+}
+
+.btn-view-more:hover {
+  background-color: #572EE5;
+  color: #ffffff;
+}
+
+.dark .btn-view-more {
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  background-color: #222326;
+}
+
+.dark .btn-view-more:hover {
+  color: #222326;
+  border: 1px solid #222326;
+  background-color: #ffffff;
 }
 
 /* Linea en modo oscuro */
@@ -731,7 +858,7 @@ div.active-input div:last-child {
 }
 
 /* Estilios seccion favoritos */
-.favorites, .my-gifs {
+.favorites, .results, .my-gifs {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -756,12 +883,60 @@ div.active-input div:last-child {
 }
 
 /* Estilios modo oscuro seccion favoritos */
-.dark .favorites, .dark .my-gifs {
+.dark .favorites, .dark .results, .dark .my-gifs {
   background-color: #37383C;
 }
 
-.dark .favorites h2, .dark .my-gifs h2 {
+.dark .favorites h2, .dark .results h2, .dark .my-gifs h2 {
   color: #ffffff;
+}
+
+.results .line {
+  margin-bottom: 83.9px;
+  width: 23.47%;
+  height: 0.1px;
+  background-color: #9CAFC3;
+  min-width: 200px;
+}
+
+.results.results-active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 1;
+  width: 100%;
+  text-align: center;
+}
+
+.btn-view-more {
+  display: none;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  border: 1px solid #572EE5;
+  width: 127px;
+  height: 50px;
+  border-radius: 25px;
+  color: #572EE5;
+  margin: 79px 0px;
+}
+
+.btn-view-more:hover {
+  background-color: #572EE5;
+  color: #ffffff;
+}
+
+.dark .btn-view-more {
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  background-color: #222326;
+}
+
+.dark .btn-view-more:hover {
+  color: #222326;
+  border: 1px solid #222326;
+  background-color: #ffffff;
 }
 
 /* Estilios seccion Mis GIFOS */
