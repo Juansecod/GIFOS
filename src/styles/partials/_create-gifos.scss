@@ -1,0 +1,304 @@
+.container-create-gif {
+    width: 100%;
+    height: 100%;
+    padding-top: 5px;
+    padding-bottom: 25px;
+    padding-right: 11.23%;
+    padding-left: 11.23%;
+    .container-video {
+        display: flex;
+    }
+    .container-cronometro {
+        margin-top: 24px;
+        display: grid;
+        grid-template-columns: 1fr 688px 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 10px;
+    }
+}
+
+.container-camara {
+    margin-top: 8.19%;
+    display: flex;
+    align-items: center;
+    max-height: 162px;
+    .camara {
+        width: calc(100% - (100% - 8.54vw));
+        max-width: 123px;
+        max-height: 162px;
+        height: auto;
+    }
+    .luz-camara {
+        width: calc(100% - (100% - 5.56vw));
+        max-width: 80px;
+        height: auto;
+    }
+}
+
+.container-video-gif {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid $primary-color;
+    width: 688px;
+    height: 390px;
+    justify-content: space-between;
+    align-content: space-between;
+    .text-video-gif {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        h2 {
+            text-align: center;
+            width: 100%;
+            font-size: 25px;
+            justify-self: center;
+            align-self: center;
+        }
+        .color-neon {
+            margin: 0;
+            padding: 0;
+            color: $secundary-color;
+        }
+        p {
+            width: 100%;
+            text-align: center;
+            font-size: 16px;
+            line-height: 29px;
+        }
+    }
+    .permisos {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        h2 {
+            text-align: center;
+            width: 100%;
+            font-size: 25px;
+            justify-self: center;
+            align-self: center;
+        }
+        p {
+            width: 100%;
+            text-align: center;
+            font-size: 16px;
+            line-height: 29px;
+        }
+    }
+    .camara-on {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: calc(390px - 50px - 80px);
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        /* border: 1px solid black; */
+        video {
+            border: 1px solid green;
+            width: 60%;
+            height: 100%;
+        }
+    }
+    span {
+        width: 27px;
+        height: 25px;
+        margin: 20px;
+    }
+    .cuadrado1 {
+        border-top: 1px solid $secundary-color;
+        border-left: 1px solid $secundary-color;
+        width: 20px;
+        height: 20px;
+    }
+    .cuadrado2 {
+        border-top: 1px solid $secundary-color;
+        border-right: 1px solid $secundary-color;
+        width: 20px;
+        height: 20px;
+    }
+    .cuadrado3 {
+        border-bottom: 1px solid $secundary-color;
+        border-left: 1px solid $secundary-color;
+        width: 20px;
+        height: 20px;
+    }
+    .cuadrado4 {
+        border-bottom: 1px solid $secundary-color;
+        border-right: 1px solid $secundary-color;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.container-pelicula {
+    max-width: 142px;
+    max-height: 88px;
+    align-self: flex-end;
+    margin-left: 4.65%;
+}
+
+.container-fase {
+    font-family: $font-family-roboto;
+    display: flex;
+    width: 688px;
+    justify-self: center;
+    align-self: center;
+    grid-column-start: 2;
+    ul {
+        padding-left: 60px;
+        list-style: none;
+        display: grid;
+        width: calc(688px - 131px);
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        align-items: center;
+        li {
+            cursor: default;
+            font-size: 18px;
+            justify-self: center;
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            margin-left: 20px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid $primary-color;
+            color: $primary-color;
+        }
+        .fase-active {
+            background-color: $primary-color;
+            color: $primary-color-dark;
+        }
+        #fase-1 {
+            grid-column-start: 2;
+        }
+        #fase-2 {
+            grid-column-start: 3;
+        }
+        #fase-3 {
+            grid-column-start: 4;
+        }
+    }
+}
+
+.cronometro {
+    font-family: $font-family-montserrat;
+    color: $primary-color;
+    font-size: 15px;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 22px;
+}
+
+.finish {
+    font-size: 13px;
+    cursor: pointer;
+    &:hover {
+        border-bottom: 2px solid $secundary-color;
+    }
+}
+
+.line-create-gifos {
+    width: 55.27vw;
+    height: 6.9px;
+    background-color: $primary-color;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 6;
+    align-self: center;
+    justify-self: center;
+}
+
+.btn-crear-gifo {
+    cursor: pointer;
+    width: 127px;
+    height: 50px;
+    border-radius: 25px;
+    border: 1px solid $primary-color;
+    color: $primary-color;
+    background-color: $primary-color-dark;
+    font-size: $font-family-montserrat;
+    font-size: 15px;
+    letter-spacing: 0;
+    font-weight: bold;
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    &:hover {
+        color: $primary-color-dark;
+        background-color: $primary-color;
+    }
+}
+
+#img-camara-noct,
+#img-pelicula-noct {
+    display: none;
+}
+
+#img-camara,
+#img-pelicula {
+    display: inline-block;
+}
+
+.dark {
+    .container-video-gif {
+        border: 1px solid $primary-color-dark;
+        .text-video-gif {
+            h2,
+            p {
+                color: white;
+            }
+            .color-neon {
+                text-shadow: 0px 0px 15px;
+            }
+        }
+        .permisos {
+            h2,
+            p {
+                color: $primary-color-dark;
+            }
+        }
+    }
+    .container-fase {
+        li {
+            border: 1px solid $primary-color-dark;
+            color: $primary-color-dark;
+            background-color: $background-black;
+        }
+        .fase-active {
+            background-color: $primary-color-dark;
+            color: $background-black;
+        }
+    }
+    .cronometro {
+        color: $primary-color-dark;
+    }
+    .finish:hover {
+        border-bottom: 2px solid $primary-color-dark;
+    }
+    .line-create-gifos {
+        background-color: $background-black;
+    }
+    .btn-crear-gifo {
+        border: 1px solid $primary-color-dark;
+        color: $primary-color-dark;
+        background-color: $background-black;
+        &:hover {
+            color: $background-black;
+            background-color: $primary-color-dark;
+        }
+    }
+    #img-camara,
+    #img-pelicula {
+        display: none;
+    }
+    #img-camara-noct,
+    #img-pelicula-noct {
+        display: inline-block;
+    }
+}

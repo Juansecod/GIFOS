@@ -1,0 +1,125 @@
+<!---------------------------------------------------------------------------------------------
+    Desarrollado por: Juan Sebastian Rios Valencia
+    Usuario git: Juansecod
+    Linkedin: https://www.linkedin.com/in/juansecode/
+---------------------------------------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#572EE5" id="theme-color">
+    <link rel="icon" type="image/svg+xml" href="./assets/img/Logo-modo-noc.svg" sizes="any">
+    <title id="titulo-navegador">Gifos-Crear Gifo</title>
+    <link rel="stylesheet" href="../src/styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <!-- Script que redirecciona al usuario en caso de acceder desde un despositivo "mobile" -->
+    <script>
+        if (window.screen.width < 1024) {
+            window.location.replace("./index.html");
+        }
+    </script>
+</head>
+
+<body id="body">
+    <!--Maquetado del header-->
+    <header>
+        <div class="line"></div>
+        <nav>
+            <a href="./index.html"><img src="./assets/img/logo-desktop.svg" alt="Logo" class="logo" id="logo"></a>
+            <img src="./assets/img/burger.svg" alt="Menu" id="menu" class="menu">
+            <div class="container-input-header " id="search-header">
+                <input type="text" id="search-input-header" class="input-search" placeholder="Busca GIFOS y más" autocomplete="off">
+                <input type="image" alt='boton buscar' id="btn-search-header" src="./assets/img/icon-search.svg" class="btn-search">
+                <input type="image" src="./assets/img/close-modo-noct.svg" alt="cerrar" id="btn-close-header" class="btn-close">
+                <span></span>
+                <div class="autocomplete" id="autocomplete-header"></div>
+            </div>
+            <ul id='list'>
+                <li id="dark-mode">MODO NOCTURNO</li>
+                <li id="nav-fav"><a id="a-favs" href="./index.html?pag=fav">FAVORITOS</a></li>
+                <li id="nav-misGifs"><a id="a-misGifs" href="./index.html?pag=myGifs">MIS GIFOS</a></li>
+                <li id="nav-create"><a id="a-create" class="create-active">+</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Maquetado del cuerpo-->
+    <main>
+        <section id="create-gif" class="container-create-gif">
+            <!-- Maquetado de las partes que hacen parte de la camara (Parte superior) -->
+            <div class="container-video">
+                <div class="container-camara">
+                    <img src="./assets/img/camara.svg" alt="camara" class="camara" id="img-camara">
+                    <img src="./assets/img/camara-modo-noc.svg" alt="camara" class="camara" id="img-camara-noct">
+                    <img src="./assets/img/element-luz-camara.svg" alt="luz-camara" class="luz-camara">
+                </div>
+                <div class="container-video-gif">
+                    <span class="cuadrado1"></span>
+                    <span class="cuadrado2"></span>
+                    <div class="text-video-gif" id="bienvenida">
+                        <h2>Aquí podrás <br>crear tus propios <span class="color-neon">GIFOS</span></h2>
+                        <p>¡Crea tu GIFO en sólo 3 pasos! <br>(sólo necesitas una cámara para grabar un video)</p>
+                    </div>
+                    <div class="permisos" id="paso-1" style="display: none;">
+                        <h2>¿Nos das acceso <br> a tu cámara?</h2>
+                        <p>El acceso a tu camara será válido sólo <br> por el tiempo en el que estés creando el GIFO.</p>
+                    </div>
+                    <div class="camara-on" id="paso-2" style="display: none;">
+                        <video class="video"></video>
+                    </div>
+                    <span class="cuadrado3"></span>
+                    <span class="cuadrado4"></span>
+                </div>
+                <div class="container-pelicula">
+                    <img src="./assets/img/pelicula.svg" alt="pelicula" id="img-pelicula">
+                    <img src="./assets/img/pelicula-modo-noc.svg" alt="pelicula" id="img-pelicula-noct">
+                </div>
+            </div>
+            <!-- Maquetado de las partes que hacen parte del cronometro (Parte Inferior) -->
+            <div class="container-cronometro">
+                <div class="container-fase">
+                    <ul>
+                        <li id="fase-1" class="fase">1</li>
+                        <li id="fase-2" class="fase">2</li>
+                        <li id="fase-3" class="fase">3</li>
+                    </ul>
+                    <h4 id="cronometro" class="cronometro" style="display:none;">
+                        00:00:00
+                        <!-- REPETIR CAPTURA -->
+                    </h4>
+                </div>
+                <span class="line-create-gifos"></span>
+                <button class="btn-crear-gifo" id="btn-crear-gifo">Comenzar</button>
+            </div>
+        </section>
+    </main>
+
+    <!--Maquetado del Footer-->
+    <footer>
+        <div class="footer-left">
+            <p>Compartir en:</p>
+            <a href="http://www.facebook.com" target="_blank" rel="noopener"><em class="fab fa-facebook-f"></em></a>
+            <a href="http://www.twitter.com" target="_blank" rel="noopener"><em class="fab fa-twitter"></em></a>
+            <a href="http://www.instagram.com" target="_blank" rel="noopener"><em class="fab fa-instagram"></em></a>
+        </div>
+        <div class="footer-right">
+            <p>© GIFOS 2020 All Rights Reserved.</p>
+        </div>
+
+    </footer>
+    <div class="line"></div>
+    <script src="../src/scripts/elementosDOM.js"></script>
+    <script src="../src/scripts/serviciosGiphy.js"></script>
+    <script src="../src/scripts/funcionesHeader.js"></script>
+    <script src="../src/scripts/modelosCardGifs.js"></script>
+    <script src="../src/scripts/eventosHeader.js"></script>
+
+    <script src="../src/scripts/funcionesCrearGifs.js"></script>
+    <!-- Libreria para el manejo de la camara -->
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+</body>
+
+</html>
