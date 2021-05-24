@@ -14,31 +14,3 @@
         text-align: center;
     }
 }
-
-.btn-view-more {
-    display: none;
-    cursor: pointer;
-    font-family: $font-family-montserrat;
-    font-weight: bold;
-    font-size: 13px;
-    border: 1px solid $primary-color;
-    width: 127px;
-    height: 50px;
-    border-radius: 25px;
-    color: $primary-color;
-    margin: 79px 0px;
-    &:hover {
-        background-color: $primary-color;
-        color: $primary-color-dark;
-    }
-    .dark & {
-        color: $primary-color-dark;
-        border: 1px solid $primary-color-dark;
-        background-color: $background-black;
-        &:hover {
-            color: $background-black;
-            border: 1px solid $background-black;
-            background-color: $primary-color-dark;
-        }
-    }
-}

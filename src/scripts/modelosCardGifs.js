@@ -23,16 +23,6 @@ function createCardTrending(gif) {
 
 function createCardResults(gif) {
     let icons = createIcons(gif);
-
-    icons.style.float = "right";
-    icons.style.listStyle = "none";
-    icons.style.display = "flex";
-    icons.style.width = "40%";
-    icons.style.height = "auto";
-    icons.style.maxHeight = "40px";
-    icons.style.maxWidth = "142.797px";
-    icons.style.position = "relative";
-    icons.style.top = "-10%";
     icons.style.display = "none";
 
     let text = createTextCard(gif.username, gif.title);
@@ -48,15 +38,6 @@ function createCardResults(gif) {
         hoverDesktopCard(img, urlImg, icons, text, img);
     }
 
-    img.style.width = "357px";
-    img.style.height = "275px";
-    img.style.display = "flex";
-
-    img.style.backgroundSize = "cover";
-    img.style.flexWrap = "wrap";
-    img.style.alignContent = "space-around";
-    img.style.justifyContent = "flex-end";
-    img.style.backgroundSize = "100% 100%";
     return img;
 }
 
@@ -74,7 +55,7 @@ function hoverDesktopCard(card, url, icons, text, img) {
         } else {
             img.style.backgroundImage = `linear-gradient(rgba(87, 46, 229, 0.7), rgba(87, 46, 229, 0.7)), url(${url})`;
         }
-    });
+    })
 }
 
 function createIcons(gif) {

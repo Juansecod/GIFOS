@@ -78,17 +78,31 @@ const eventsSearch = {
             let resultsSearch = servicesGiphy.getSearchResults(input.value);
             resultsSearch
                 .then(resolve => {
-                    resolve.data.forEach(info => {
-                        let gif = {
-                            id: info.id,
-                            title: info.title,
-                            username: info.username,
-                            urlImg: info.images.fixed_height.url
-                        };
-                        let div = createCardResults(gif);
-                        sectionSearch.appendChild(div);
-                    });
-                    console.log(resolve.data);
+                    if (resolve.data.length != 0) {
+                        titleSearchResults.textContent = input.value;
+                        containerResultsSearch.classList.add("view-gifs");
+                        btnViewMoreResult.style.display = "inline-block";
+                        resolve.data.forEach((info, index) => {
+                            let gif = {
+                                id: info.id,
+                                title: info.title,
+                                username: info.username,
+                                urlImg: info.images.fixed_height.url
+                            };
+                            if (index < 12) {
+                                let div = createCardResults(gif);
+                                containerResultsSearch.appendChild(div);
+                                cont = cont + 1;
+                            }
+                            return cont;
+                        });
+                    } else {
+                        titleSearchResults.textContent = "Lorem Ipsum";
+                        containerResultsSearch.classList.remove("view-gifs");
+                        btnViewMoreResult.style.display = "none";
+                        containerResultsSearch.innerHTML = `<img src="./assets/img/icon-busqueda-sin-resultado.svg " alt="Not Found! ">
+                        <h3>Intenta con otra búsqueda.</h3>`;
+                    }
                 })
                 .catch(err => console.error(err));
         } else {

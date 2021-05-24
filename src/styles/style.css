@@ -288,6 +288,7 @@ a {
   border-radius: 25px;
   color: #572EE5;
   margin: 79px 0px;
+  background-color: #ffffff;
 }
 
 .btn-view-more:hover {
@@ -906,37 +907,6 @@ div.active-input div:last-child {
   opacity: 1;
   width: 100%;
   text-align: center;
-}
-
-.btn-view-more {
-  display: none;
-  cursor: pointer;
-  font-family: "Montserrat", sans-serif;
-  font-weight: bold;
-  font-size: 13px;
-  border: 1px solid #572EE5;
-  width: 127px;
-  height: 50px;
-  border-radius: 25px;
-  color: #572EE5;
-  margin: 79px 0px;
-}
-
-.btn-view-more:hover {
-  background-color: #572EE5;
-  color: #ffffff;
-}
-
-.dark .btn-view-more {
-  color: #ffffff;
-  border: 1px solid #ffffff;
-  background-color: #222326;
-}
-
-.dark .btn-view-more:hover {
-  color: #222326;
-  border: 1px solid #222326;
-  background-color: #ffffff;
 }
 
 /* Estilios seccion Mis GIFOS */

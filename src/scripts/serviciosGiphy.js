@@ -20,8 +20,8 @@ const servicesGiphy = {
         let recomendation = await data.json();
         return recomendation;
     },
-    getSearchResults: async(text, cantGifs = 30) => {
-        let data = await fetch(`${configDev.url}gifs/search?api_key=${configDev.apiKey}&q=${text}&limit=${cantGifs}`);
+    getSearchResults: async(text, cantGifs = 12) => {
+        let data = await fetch(`${configDev.url}gifs/search?api_key=${configDev.apiKey}&q=${text}&limit=${cantGifs}&offset=${cont}`);
         let result = await data.json();
         return result;
     }
