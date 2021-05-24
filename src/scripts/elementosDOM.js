@@ -8,6 +8,7 @@ const menu = document.getElementById('menu');
 const list = document.getElementById('list');
 const favNav = document.getElementById("nav-fav");
 const containerFavoritos = document.getElementById("favorites");
+const containerFullscreen = document.getElementById("fullscreen");
 let containerGifsFav = document.getElementById("container-favorites");
 const myGifsNav = document.getElementById("nav-misGifs");
 const searchHeader = document.getElementById('search-header');

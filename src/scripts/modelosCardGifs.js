@@ -17,6 +17,8 @@ function createCardTrending(gif) {
     cardTrending.appendChild(img);
     if (screen.width > 760) {
         hoverDesktopCard(cardTrending, urlImg, icons, text, img);
+    } else {
+        cardTrending.addEventListener('click', () => eventsIcons.displayFullscreen(gif));
     }
     return cardTrending;
 }
@@ -36,6 +38,8 @@ function createCardResults(gif) {
 
     if (screen.width > 760) {
         hoverDesktopCard(img, urlImg, icons, text, img);
+    } else {
+        img.addEventListener('click', () => eventsIcons.displayFullscreen(gif));
     }
 
     return img;
@@ -93,6 +97,7 @@ function createIcons(gif) {
                 /* Boton Fullscreen */
             case 2:
                 em.className = "fas fa-expand-alt";
+                li.addEventListener("click", () => eventsIcons.displayFullscreen(gif));
                 break;
         }
         li.appendChild(em);
@@ -180,6 +185,48 @@ const eventsIcons = {
         let div = createCardResults(obj);
         div.id = obj.id + "-fav";
         containerGifsFav.appendChild(div);
+    },
+    displayFullscreen: (obj) => {
+        containerFullscreen.innerHTML = "";
+        containerFullscreen.innerHTML = `
+        <div>
+            <em class="fas fa-times close" id="close-fullscreen"></em>
+            <img src="${obj.urlImg}" alt="Gif">
+            <div>
+                <h3>${obj.title}</h3>
+                <p>${obj.username}</p>
+                <ul class="icons">
+                    <li><em class="far fa-heart" id="fav-fullscreen"></em></li>
+                    <li><em class="fas fa-download" id="download-fullscreen"></em></li>
+                </ul>
+            </div>
+        </div>`;
+        containerFullscreen.classList.add("fullscreen-active");
+
+        const close = document.getElementById("close-fullscreen");
+        close.addEventListener('click', () => containerFullscreen.classList.remove("fullscreen-active"));
+
+        const fav = document.getElementById("fav-fullscreen");
+        const li = fav.parentNode;
+        let gifsFavs = JSON.parse(localStorage.getItem("GifsFavs"));
+        let filter = gifsFavs.filter(function(gifJson) { return gifJson.id == obj.id; });
+        if (filter.length == 0) {
+            eventsIcons.eventsFavsAdd(fav, obj, li);
+        } else {
+            eventsIcons.eventsFavsRemove(fav, obj, li);
+        }
+        li.addEventListener("mouseout", () => {
+            let gifsFavsUpdate = JSON.parse(localStorage.getItem("GifsFavs"));
+            let filterUpdate = gifsFavsUpdate.filter(function(gifJson) { return gifJson.id == obj.id; });
+            if (filterUpdate.length == 0) {
+                eventsIcons.eventsFavsAdd(fav, obj, li);
+            } else {
+                eventsIcons.eventsFavsRemove(fav, obj, li);
+            }
+        });
+
+        const download = document.getElementById("download-fullscreen");
+        download.addEventListener('click', () => eventsIcons.downloadGifos(obj));
     }
 
 };
