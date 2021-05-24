@@ -641,13 +641,16 @@ nav ul .active {
 }
 
 .fullscreen.fullscreen-active div img {
-  width: 80%;
+  width: auto;
   height: 80%;
 }
 
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 698px) {
   .fullscreen.fullscreen-active div img {
+    width: auto;
     height: auto;
+    max-width: 290px;
+    max-height: 240px;
   }
 }
 
