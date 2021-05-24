@@ -69,7 +69,7 @@ if (screen.width > 950) {
 
 btnViewMoreResult.addEventListener('click', () => {
     eventsSearch.resultSearch(input_search);
-})
+});
 
 /* Search Header */
 btnCloseHeader.addEventListener("click", (e) => {
