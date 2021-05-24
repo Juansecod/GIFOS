@@ -27,18 +27,18 @@ const eventsSearch = {
         icono.classList.add("fas", "fa-search");
         let textContent = document.createElement("text");
         textContent.textContent = text;
-        textContent.addEventListener('click', () => {
-            input_search.value = textContent.textContent;
-            inputSearchHeader.value = textContent.textContent;
+        let div = document.createElement("div");
+        div.appendChild(icono);
+        div.appendChild(textContent);
+        div.addEventListener('click', () => {
+            input_search.value = text;
+            inputSearchHeader.value = text;
             if (container == autollenarBody) {
                 btn_search.click();
             } else {
                 btnSearchHeader.click();
             }
         });
-        let div = document.createElement("div");
-        div.appendChild(icono);
-        div.appendChild(textContent);
         container.appendChild(div);
     },
     addClassActive: (container) => container.classList.add("active-input"),
@@ -77,7 +77,19 @@ const eventsSearch = {
         if (input.value != "") {
             let resultsSearch = servicesGiphy.getSearchResults(input.value);
             resultsSearch
-                .then(resolve => console.log(resolve))
+                .then(resolve => {
+                    resolve.data.forEach(info => {
+                        let gif = {
+                            id: info.id,
+                            title: info.title,
+                            username: info.username,
+                            urlImg: info.images.fixed_height.url
+                        };
+                        let div = createCardResults(gif);
+                        sectionSearch.appendChild(div);
+                    });
+                    console.log(resolve.data);
+                })
                 .catch(err => console.error(err));
         } else {
             console.log("null");

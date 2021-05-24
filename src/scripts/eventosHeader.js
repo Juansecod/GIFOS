@@ -2,6 +2,7 @@ let myStorage = window.localStorage;
 if (body.classList != "dark") {
     eventsHeader.btnTrending();
 }
+if (myStorage.GifsFavs == undefined) { localStorage.setItem('GifsFavs', `[]`); }
 /* Aplica ultimo tema usado */
 if (myStorage.modo == undefined) {
     localStorage.setItem('modo', 0);

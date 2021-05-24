@@ -1,4 +1,5 @@
 /* Recoleccion de los elementos del DOM */
+const titleNavegador = document.getElementById("titulo-navegador");
 const btn_dark_mode = document.getElementById('dark-mode');
 const header = document.getElementsByTagName('header');
 const body = document.getElementById('body');

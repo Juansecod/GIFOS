@@ -59,12 +59,14 @@ const eventsHeader = {
         }
         let aFav = document.getElementById("a-favs");
         aFav.classList.add("active");
+        titleNavegador.textContent = "Gifos - Favoritos";
     },
     searchActive: () => {
         if (active() != null) {
             ocultarContainer(sectionSearch);
             active().classList.remove("active");
         }
+        titleNavegador.textContent = "Gifos";
     },
     myGifsActive: () => {
         if (active() != null) {
@@ -75,6 +77,7 @@ const eventsHeader = {
         }
         let aMyGifs = document.getElementById("a-misGifs");
         aMyGifs.classList.add("active");
+        titleNavegador.textContent = "Gifos - Mis Gifos";
     },
     btnTrending: () => {
         btnRight.addEventListener('mouseover', function() {
