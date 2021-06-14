@@ -175,7 +175,7 @@ const eventsIcons = {
         const urlGif = URL.createObjectURL(await blobGif);
         const saveImg = document.createElement("a");
         saveImg.href = urlGif;
-        saveImg.download = obj.title;
+        (obj.title != undefined) ? saveImg.download = obj.title: saveImg.download = obj.id;
         saveImg.style = 'display: "none"';
         document.body.appendChild(saveImg);
         saveImg.click();

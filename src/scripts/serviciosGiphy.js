@@ -24,5 +24,59 @@ const servicesGiphy = {
         let data = await fetch(`${configDev.url}gifs/search?api_key=${configDev.apiKey}&q=${text}&limit=${cantGifs}&offset=${cont}`);
         let result = await data.json();
         return result;
+    },
+    guardarGIFO: async(blob) => {
+        let formData = new FormData();
+        const usuario = "juansecod";
+        formData.append('api_key', configDev.apiKey);
+        formData.append('username', usuario);
+        formData.append('file', blob, 'myGif.gif');
+        formData.append('tags', 'mygifo');
+
+        const queryCargarGifo = `https://upload.giphy.com/v1/gifs`;
+        await fetch(encodeURI(queryCargarGifo), {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => res.json())
+            .catch(error => console.error('Error:', error))
+            .then(response => {
+                let MisGifos = JSON.parse(localStorage.getItem('MisGifos'));
+                const id = response.data.id;
+                MisGifos.push(id);
+                localStorage.setItem('MisGifos', JSON.stringify(MisGifos));
+                this.video.srcObject.getTracks()[0].stop();
+                const nodesImgGif = imgGif.children;
+                for (i = 0; i < nodesImgGif.length; i++) {
+                    nodesImgGif[i].style.display = "";
+                }
+                document.querySelector(".icons").style.display = "";
+                document.querySelector(".fa-check").style.display = "";
+                const iconsChilds = document.querySelector(".icons").childNodes;
+                listIcons = [];
+                iconsChilds.forEach((li) => {
+                    if (li.nodeName != "#text") {
+                        listIcons.push(li);
+                    }
+                });
+                listIcons.forEach((li) => {
+                    switch (li.childNodes[0].classList.value) {
+                        case "fas fa-download":
+                            li.addEventListener("click", () => {
+                                eventsIcons.downloadGifos(response.data);
+                            });
+                            break;
+                        case "fas fa-link":
+                            li.addEventListener("click", () => {
+                                Object.assign(document.createElement('a'), {
+                                    target: '_blank',
+                                    href: `https://giphy.com/gifs/${id}`,
+                                }).click();
+                            });
+                            break;
+                    }
+                });
+                imgGif.classList.remove("spinner");
+            });
     }
 };

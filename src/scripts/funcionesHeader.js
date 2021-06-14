@@ -59,8 +59,10 @@ const eventsHeader = {
         } else {
             ocultarSearch(containerFavoritos);
         }
+        btnCloseHeader.click();
         let aFav = document.getElementById("a-favs");
         aFav.classList.add("active");
+        window.history.pushState({}, "Favoritos", "index.html#favoritos");
         titleNavegador.textContent = "Gifos - Favoritos";
     },
     searchActive: () => {
@@ -76,6 +78,7 @@ const eventsHeader = {
                 }, 1250);
             }
         }
+        window.history.pushState({}, "Index", "index.html");
         titleNavegador.textContent = "Gifos";
     },
     myGifsActive: () => {
@@ -85,8 +88,10 @@ const eventsHeader = {
         } else {
             ocultarSearch(containerMyGifs);
         }
+        btnCloseHeader.click();
         let aMyGifs = document.getElementById("a-misGifs");
         aMyGifs.classList.add("active");
+        window.history.pushState({}, "Mis Gifos", "index.html#mis-gifs");
         titleNavegador.textContent = "Gifos - Mis Gifos";
     },
     btnTrending: () => {

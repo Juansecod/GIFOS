@@ -4,10 +4,11 @@ if (body.classList != "dark" && btnRight != undefined) {
     eventsHeader.btnTrending();
 }
 if (myStorage.GifsFavs == undefined) { localStorage.setItem('GifsFavs', `[]`); }
+if (myStorage.MisGifos == undefined) { localStorage.setItem('MisGifos', `[]`); }
 
 let gifsFavs = localStorage.getItem("GifsFavs");
 gifsFavs = JSON.parse(gifsFavs);
-if (gifsFavs.length != 0) {
+if (gifsFavs.length != 0 && window.location.pathname != '/public/crear-gifo.html') {
     containerGifsFav.innerHTML = "";
     containerGifsFav.classList.add("view-gifs");
     gifsFavs.forEach((gif) => eventsIcons.createDOMFavorites(gif));
@@ -108,6 +109,11 @@ if (favNav != undefined && myGifsNav != undefined) {
         eventsHeader.searchActive();
     });
 }
+
+// Carga en la parte deseada
+const url = window.location.hash.split(('#'));
+if (url[1] == "favoritos") eventsHeader.favoritesActive();
+if (url[1] == "mis-gifs") eventsHeader.myGifsActive();
 
 /* Animacion al hacer scroll en vistas Desktop */
 if (window.screen.width > 950) {

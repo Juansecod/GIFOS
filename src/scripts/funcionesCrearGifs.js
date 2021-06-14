@@ -1,37 +1,68 @@
 const eventsBtn = {
-    firstClick: () => {
+    init: () => {
         let li = document.getElementById("fase-1");
         li.classList.add("fase-active");
         document.getElementById("bienvenida").style.display = "none";
         document.getElementById("paso-1").style.display = "";
+        btnInit.addEventListener("click", () => eventsBtn.uploadVideoLive());
+        initiateWebcam();
     },
-    secondClick: () => {
+    uploadVideoLive: () => {
         let li = document.getElementById("fase-2");
         document.getElementById("fase-1").classList.remove("fase-active");
-        li.classList.add("fase-active")
+        li.classList.add("fase-active");
         document.getElementById("paso-1").style.display = "none";
         document.getElementById("paso-2").style.display = "";
-        let boton = document.getElementById("btn-crear-gifo");
-        boton.innerHTML = "GRABAR";
-        let cronometro = document.getElementById("cronometro");
+        btnInit.style.display = "none";
+        btnRecord.style.display = "";
         cronometro.innerHTML = "00:00:00";
         cronometro.style.display = "";
     },
-    thirdClick: () => {
-        let boton = document.getElementById("btn-crear-gifo");
-        boton.innerHTML = "FINALIZAR";
+    startRecord: () => {
+        btnRecord.style.display = "none";
+        btnStopRecord.style.display = "";
+        recorder = Grabar();
+        startCronometro();
     },
-    fourClick: () => {
-        let cronometro = document.getElementById("cronometro");
-        let boton = document.getElementById("btn-crear-gifo");
-        boton.innerHTML = "SUBIR GIFO";
+    finishRecord: async() => {
+        await recorder.stopRecording();
+        stopCronometro();
+        let blob = await recorder.getBlob();
+        blobSave = URL.createObjectURL(blob);
+        imgGif.src = blobSave;
+        imgGif.style.display = "";
+        video.style.display = "none";
+        btnStopRecord.style.display = "none";
+        btnSubmit.style.display = "";
         cronometro.innerHTML = "REPETIR CAPTURA";
         cronometro.classList.add("finish");
+        cronometro.addEventListener('click', () => eventsBtn.reset());
+        imgGif.style.backgroundImage = `url(${blobSave})`;
     },
-    fiveClick: () => {
-        document.getElementById("cronometro").style.display = "none";
-        document.getElementById("btn-crear-gifo").style.display = "none";
+    submitVideo: async() => {
+        cronometro.style.display = "none";
+        btnSubmit.style.display = "none";
         document.getElementById("fase-2").classList.remove("fase-active");
         document.getElementById("fase-3").classList.add("fase-active");
+
+        if (body.classList == "dark") {
+            imgGif.style.backgroundImage = `linear-gradient(rgba(55, 56, 60, 0.7), rgba(55, 56, 60, 0.7)), url(${blobSave})`;
+        } else {
+            imgGif.style.backgroundImage = `linear-gradient(rgba(87, 46, 229, 0.7), rgba(87, 46, 229, 0.7)), url(${blobSave})`;
+        }
+        imgGif.classList.add("spinner");
+
+        let blob = await recorder.getBlob();
+        let estado = servicesGiphy.guardarGIFO(blob);
+        console.log(estado);
+    },
+    reset: () => {
+        btnRecord.style.display = "";
+        btnSubmit.style.display = "none";
+        video.style.display = "";
+        imgGif.style.display = "none";
+        cronometro.innerHTML = "00:00:00";
+        cronometro.classList.remove("finish");
+        initiateWebcam();
     }
 };

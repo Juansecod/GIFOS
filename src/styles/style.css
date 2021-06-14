@@ -1388,11 +1388,9 @@ div.active-input div:last-child {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  /* border: 1px solid black; */
 }
 
-.container-video-gif .camara-on video {
-  border: 1px solid green;
+.container-video-gif .camara-on .video {
   width: 60%;
   height: 100%;
 }
@@ -1453,7 +1451,7 @@ div.active-input div:last-child {
 }
 
 .container-fase ul {
-  padding-left: 60px;
+  padding-left: 100px;
   list-style: none;
   display: -ms-grid;
   display: grid;
@@ -1522,6 +1520,59 @@ div.active-input div:last-child {
   border-bottom: 2px solid #50E3C2;
 }
 
+.video-gif {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding: 10px;
+  background-size: 100% 100%;
+  background-image: url("https://media1.giphy.com/media/nrlEQENQIF7pDKBDAB/200.gif?cid=188014f16rbx4aviysivycvlpeirjh5jxap6e0zkwm8dykxs&rid=200.gif&ct=g");
+}
+
+.video-gif .icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: static;
+}
+
+.video-gif em {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  justify-self: center;
+  width: 100%;
+  height: 250px;
+  color: lime;
+  font-size: 22px;
+}
+
+.video-gif em text {
+  color: #ffffff;
+}
+
 .line-create-gifos {
   width: 55.27vw;
   height: 6.9px;
@@ -1568,6 +1619,19 @@ div.active-input div:last-child {
 .btn-crear-gifo:hover {
   color: #ffffff;
   background-color: #572EE5;
+}
+
+.error {
+  width: auto;
+  border: 1px solid red;
+  color: red;
+  padding: 10px;
+}
+
+.error:hover {
+  color: red;
+  background-color: #ffffff;
+  cursor: default;
 }
 
 #img-camara-noct,

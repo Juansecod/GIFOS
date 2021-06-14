@@ -92,9 +92,7 @@
         align-content: center;
         justify-content: center;
         align-items: center;
-        /* border: 1px solid black; */
-        video {
-            border: 1px solid green;
+        .video {
             width: 60%;
             height: 100%;
         }
@@ -145,7 +143,7 @@
     align-self: center;
     grid-column-start: 2;
     ul {
-        padding-left: 60px;
+        padding-left: 100px;
         list-style: none;
         display: grid;
         width: calc(688px - 131px);
@@ -198,6 +196,35 @@
     }
 }
 
+.video-gif {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 10px;
+    background-size: 100% 100%;
+    background-image: url("https://media1.giphy.com/media/nrlEQENQIF7pDKBDAB/200.gif?cid=188014f16rbx4aviysivycvlpeirjh5jxap6e0zkwm8dykxs&rid=200.gif&ct=g");
+    .icons {
+        display: flex;
+        position: static;
+    }
+    em {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+        justify-self: center;
+        width: 100%;
+        height: 250px;
+        color: rgb(0, 255, 0);
+        font-size: 22px;
+        text {
+            color: $primary-color-dark;
+        }
+    }
+}
+
 .line-create-gifos {
     width: 55.27vw;
     height: 6.9px;
@@ -232,6 +259,18 @@
     &:hover {
         color: $primary-color-dark;
         background-color: $primary-color;
+    }
+}
+
+.error {
+    width: auto;
+    border: 1px solid red;
+    color: red;
+    padding: 10px;
+    &:hover {
+        color: red;
+        background-color: $primary-color-dark;
+        cursor: default;
     }
 }
 
