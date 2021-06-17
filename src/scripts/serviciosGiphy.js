@@ -16,7 +16,7 @@ const servicesGiphy = {
         return terms;
     },
     getAutocompleteSearch: async(text) => {
-        let data = await fetch(`https://api.giphy.com/v1/gifs/search/tags?api_key=${configDev.apiKey}&q=${text}`);
+        let data = await fetch(`${configDev.url}gifs/search/tags?api_key=${configDev.apiKey}&q=${text}`);
         let recomendation = await data.json();
         return recomendation;
     },
@@ -40,10 +40,19 @@ const servicesGiphy = {
             })
             .then(res => res.json())
             .catch(error => console.error('Error:', error))
-            .then(response => {
+            .then(async(response) => {
                 let MisGifos = JSON.parse(localStorage.getItem('MisGifos'));
                 const id = response.data.id;
-                MisGifos.push(id);
+                let dataGif = await servicesGiphy.getGifById(id);
+                dataGif = dataGif.data;
+                dataGif = {
+                    id: dataGif.id,
+                    title: "Mi Gif " + (MisGifos.length + 1),
+                    urlImg: dataGif.images.fixed_height.url,
+                    username: dataGif.username
+
+                };
+                MisGifos.push(dataGif);
                 localStorage.setItem('MisGifos', JSON.stringify(MisGifos));
                 this.video.srcObject.getTracks()[0].stop();
                 const nodesImgGif = imgGif.children;
@@ -78,5 +87,10 @@ const servicesGiphy = {
                 });
                 imgGif.classList.remove("spinner");
             });
+    },
+    getGifById: async(id) => {
+        let data = await fetch(`${configDev.url}gifs/${id}?api_key=${configDev.apiKey}`)
+        let result = await data.json();
+        return result;
     }
 };

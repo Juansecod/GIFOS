@@ -11,8 +11,18 @@ gifsFavs = JSON.parse(gifsFavs);
 if (gifsFavs.length != 0 && window.location.pathname != '/public/crear-gifo.html') {
     containerGifsFav.innerHTML = "";
     containerGifsFav.classList.add("view-gifs");
-    gifsFavs.forEach((gif) => eventsIcons.createDOMFavorites(gif));
+    gifsFavs.forEach((gif) => DOMgenerator.createDOMFavorites(gif));
 }
+
+
+let gifsMyGifs = localStorage.getItem("MisGifos");
+gifsMyGifs = JSON.parse(gifsMyGifs);
+if (gifsMyGifs.length != 0 && window.location.pathname != '/public/crear-gifo.html') {
+    containerGifsMyGifs.innerHTML = "";
+    containerGifsMyGifs.classList.add('view-gifs');
+    gifsMyGifs.forEach((gif) => DOMgenerator.createDOMMyGifs(gif));
+}
+
 
 /* Aplica ultimo tema usado */
 if (myStorage.modo == undefined) {

@@ -219,7 +219,9 @@
         height: 250px;
         color: rgb(0, 255, 0);
         font-size: 22px;
-        text {
+        span {
+            width: auto;
+            height: auto;
             color: $primary-color-dark;
         }
     }

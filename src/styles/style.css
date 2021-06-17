@@ -1569,7 +1569,9 @@ div.active-input div:last-child {
   font-size: 22px;
 }
 
-.video-gif em text {
+.video-gif em span {
+  width: auto;
+  height: auto;
   color: #ffffff;
 }
 

@@ -45,6 +45,28 @@ function createCardResults(gif) {
     return img;
 }
 
+function createCardMisGif(gif) {
+    let icons = createIconsMyGif(gif);
+    icons.style.display = "none";
+
+    let text = createTextCard(gif.username, gif.title);
+    text.style.display = 'none';
+
+    let urlImg = gif.urlImg;
+    let img = document.createElement('div');
+    img.style.backgroundImage = `url(${urlImg})`;
+    img.appendChild(icons);
+    img.appendChild(text);
+
+    if (screen.width > 760) {
+        hoverDesktopCard(img, urlImg, icons, text, img);
+    } else {
+        img.addEventListener('click', () => eventsIcons.displayFullscreen(gif));
+    }
+
+    return img;
+}
+
 function hoverDesktopCard(card, url, icons, text, img) {
     card.addEventListener('mouseout', () => {
         icons.style.display = 'none';
@@ -79,7 +101,7 @@ function createIcons(gif) {
                 } else {
                     eventsIcons.eventsFavsRemove(em, gif, li);
                 }
-                li.addEventListener("mouseout", () => {
+                li.addEventListener("mouseout", () => { // Actualizacion del display de favoritos
                     let gifsFavsUpdate = JSON.parse(localStorage.getItem("GifsFavs"));
                     let filterUpdate = gifsFavsUpdate.filter(function(gifJson) { return gifJson.id == gif.id; });
                     if (filterUpdate.length == 0) {
@@ -106,6 +128,55 @@ function createIcons(gif) {
     return ulIcons;
 }
 
+function createIconsMyGif(gif) {
+    let ulIcons = document.createElement('ul');
+    ulIcons.className = "icons";
+
+    for (let i = 0; i < 4; i++) {
+        let li = document.createElement('li');
+        let em = document.createElement('em');
+        switch (i) {
+            /* Boton Favoritos */
+            case 0:
+                let gifsFavs = JSON.parse(localStorage.getItem("GifsFavs"));
+                let filter = gifsFavs.filter(function(gifJson) { return gifJson.id == gif.id; });
+                if (filter.length == 0) {
+                    eventsIcons.eventsFavsAdd(em, gif, li);
+                } else {
+                    eventsIcons.eventsFavsRemove(em, gif, li);
+                }
+                li.addEventListener("mouseout", () => { // Actualizacion del display de favoritos
+                    let gifsFavsUpdate = JSON.parse(localStorage.getItem("GifsFavs"));
+                    let filterUpdate = gifsFavsUpdate.filter(function(gifJson) { return gifJson.id == gif.id; });
+                    if (filterUpdate.length == 0) {
+                        eventsIcons.eventsFavsAdd(em, gif, li);
+                    } else {
+                        eventsIcons.eventsFavsRemove(em, gif, li);
+                    }
+                });
+                break;
+                /* Boton Download */
+            case 1:
+                em.className = "fas fa-download";
+                li.addEventListener("click", () => eventsIcons.downloadGifos(gif));
+                break;
+                /* Boton Fullscreen */
+            case 2:
+                em.className = "fas fa-expand-alt";
+                li.addEventListener("click", () => eventsIcons.displayFullscreen(gif));
+                break;
+                /* Boton Delete */
+            case 3:
+                em.className = "far far fa-trash-alt"
+                li.addEventListener(("click"), () => eventsIcons.deleteMyGifs(gif));
+                break;
+        }
+        li.appendChild(em);
+        ulIcons.appendChild(li);
+    }
+    return ulIcons;
+}
+
 const eventsIcons = {
     addFavGifos: (obj) => {
         let gifsFavs = localStorage.getItem("GifsFavs");
@@ -118,7 +189,7 @@ const eventsIcons = {
         if (results.length == 0) {
             gifsFavs.push(obj);
             localStorage.setItem('GifsFavs', JSON.stringify(gifsFavs));
-            eventsIcons.createDOMFavorites(obj);
+            DOMgenerator.createDOMFavorites(obj);
         }
 
     },
@@ -181,10 +252,18 @@ const eventsIcons = {
         saveImg.click();
         document.body.removeChild(saveImg);
     },
-    createDOMFavorites: (obj) => {
-        let div = createCardResults(obj);
-        div.id = obj.id + "-fav";
-        containerGifsFav.appendChild(div);
+    deleteMyGifs: async(obj) => {
+        let data = JSON.parse(localStorage.getItem('MisGifos'));
+        await data.forEach((gif, index, data) => gif.id === obj.id ? data.splice(index, 1) : null);
+        localStorage.setItem("MisGifos", JSON.stringify(data));
+        if (data.length == 0) {
+            containerGifsMyGifs.innerHTML = `<img src="./assets/img/icon-mis-gifos-sin-contenido.svg" alt="Crea Gifs">
+            <h3>¡Anímate a crear tu primer GIFO!</h3>`;
+            containerGifsMyGifs.classList.remove("view-gifs");
+        } else {
+            let div = document.getElementById(obj.id + "-myGif");
+            containerGifsMyGifs.removeChild(div);
+        }
     },
     displayFullscreen: (obj) => {
         containerFullscreen.innerHTML = "";
@@ -230,6 +309,19 @@ const eventsIcons = {
     }
 
 };
+
+const DOMgenerator = {
+    createDOMFavorites: (obj) => {
+        let div = createCardResults(obj);
+        div.id = obj.id + "-fav";
+        containerGifsFav.appendChild(div);
+    },
+    createDOMMyGifs: (obj) => {
+        let div = createCardMisGif(obj);
+        div.id = obj.id + "-myGif";
+        containerGifsMyGifs.appendChild(div);
+    }
+}
 
 function createTextCard(user, title) {
     let pUser = document.createElement('p');

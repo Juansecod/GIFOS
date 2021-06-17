@@ -22,6 +22,7 @@ const titleSearchResults = document.getElementById("title-search-results");
 const containerResultsSearch = document.getElementById("container-results-search");
 const btnViewMoreResult = document.getElementById("view-more-results");
 const containerMyGifs = document.getElementById("my-gifs");
+const containerGifsMyGifs = document.getElementById("container-my-gifs")
 const meta_theme_color = document.getElementById('theme-color');
 const btn_search = document.getElementById('btn-search');
 const btnCloseBody = document.getElementById("btn-close");
